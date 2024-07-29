@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CldUploadButton, CldImage } from 'next-cloudinary';
 import crypto from 'crypto';
 
@@ -13,7 +13,7 @@ const generateSignature = (publicId, apiSecret, timestamp) => {
     return `public_id=${publicId}&timestamp=${timestamp}${apiSecret}`;
 };
 
-export default function PhotosUpload({ setImagesArray }) {
+export default function PhotosUpload({ setImagesArray, imagesArray }) {
     const [images, setImages] = useState([]);
     const [error, setError] = useState(null);
     const [successMessage, setSuccessMessage] = useState(null);
@@ -22,7 +22,12 @@ export default function PhotosUpload({ setImagesArray }) {
         setError(null);
         setSuccessMessage(null);
     };
-
+    useEffect(()=>{
+        if(imagesArray.length > 0) {
+            setImages(imagesArray)
+        }
+    },[imagesArray])
+    
     const handleDeleteImage = async (publicId) => {
         const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
         const apiKey = process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY;
@@ -52,6 +57,7 @@ export default function PhotosUpload({ setImagesArray }) {
             if (data.result === 'ok') {
                 setImages((prevImages) => {
                     const updatedImages = prevImages.filter((image) => image.public_id !== publicId);
+                    console.log(updatedImages);
                     setImagesArray(updatedImages);
                     return updatedImages;
                 });
@@ -81,7 +87,7 @@ export default function PhotosUpload({ setImagesArray }) {
         <>
             <CldUploadButton
                 uploadPreset="alfares"
-                className="bg-lime-800 w-full rounded-lg p-2"
+                className="bg-lime-800 w-full rounded-lg p-2 max-w-screen-lg"
                 onSuccess={handleUploadSuccess}
                 onClick={handleResetErrorAndSuccess}
             >
@@ -100,6 +106,7 @@ export default function PhotosUpload({ setImagesArray }) {
                             src={image.secure_url}
                             sizes="100vw"
                             alt="image"
+                            
                             className="min-h-60 max-h-60 w-auto h-auto"
                         />
                         <button

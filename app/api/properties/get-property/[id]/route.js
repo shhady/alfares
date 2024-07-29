@@ -1,15 +1,23 @@
 import {connectToDB} from '@/utils/database';
 import Property from '@/models/property';
 
-export const getPropertyById = async (id) => {
+export async function GET(request, { params }) {
+  await connectToDB();
+
   try {
-    await connectToDB();
+    const { id } = params;
+
+    if (!id) {
+      return new Response(JSON.stringify({ error: 'ID is required' }), { status: 400 });
+    }
+
     const property = await Property.findById(id);
     if (!property) {
-      throw new Error('Property not found');
+      return new Response(JSON.stringify({ error: 'property not found' }), { status: 404 });
     }
-    return property;
+
+    return new Response(JSON.stringify(property), { status: 200 });
   } catch (error) {
-    throw new Error('Failed to fetch property: ' + error.message);
+    return new Response(JSON.stringify({ error: error.message }), { status: 400 });
   }
-};
+}

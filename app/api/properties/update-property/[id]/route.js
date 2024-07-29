@@ -1,12 +1,24 @@
+
 import {connectToDB} from '@/utils/database';
 import Property from '@/models/property';
 
-export const updateProperty = async (id, data) => {
+export async function PUT(request, { params }) {
+  await connectToDB();
+  console.log(request);
   try {
-    await connectToDB();
-    const updatedProperty = await Property.findByIdAndUpdate(id, data, { new: true });
-    return updatedProperty;
+    const { id } = params;
+    const data = await request.json();
+    if (!id) {
+      return new Response(JSON.stringify({ error: 'ID is required' }), { status: 400 });
+    }
+
+    const updatedProperty = await Property.findByIdAndUpdate(id, data, { new: true });  
+      if (!updatedProperty) {
+      return new Response(JSON.stringify({ error: 'property not found' }), { status: 404 });
+    }
+
+    return new Response(JSON.stringify(updatedProperty), { status: 200 });
   } catch (error) {
-    throw new Error('Failed to update property: ' + error.message);
+    return new Response(JSON.stringify({ error: error.message }), { status: 400 });
   }
-};
+}

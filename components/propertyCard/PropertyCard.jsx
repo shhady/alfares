@@ -16,7 +16,7 @@ export default function PropertyCard({property}) {
         </div>
        <Image
                             width={1000} height={1000}
-                            src={property.images[0].secure_url}
+                            src={property.images[0]?.secure_url}
                             alt="image"
                             className="min-h-60 max-h-60 w-full h-auto object-cover rounded-t-lg "
                         />
