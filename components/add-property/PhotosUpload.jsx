@@ -13,8 +13,6 @@ const generateSignature = (publicId, apiSecret, timestamp) => {
     return `public_id=${publicId}&timestamp=${timestamp}${apiSecret}`;
 };
 
-
-
 export default function PhotosUpload({ setImagesArray }) {
     const [images, setImages] = useState([]);
     const [error, setError] = useState(null);
@@ -29,7 +27,7 @@ export default function PhotosUpload({ setImagesArray }) {
         const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
         const apiKey = process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY;
         const apiSecret = process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET;
-        const timestamp = Math.floor(Date.now() / 1000); // Cloudinary requires a timestamp in seconds
+        const timestamp = Math.floor(Date.now() / 1000);
         const signature = generateSHA1(generateSignature(publicId, apiSecret, timestamp));
 
         const url = `https://api.cloudinary.com/v1_1/${cloudName}/image/destroy`;
@@ -51,13 +49,13 @@ export default function PhotosUpload({ setImagesArray }) {
             const data = await response.json();
             console.log(data);
 
-            // Update state to remove the image from the array
             if (data.result === 'ok') {
                 setImages((prevImages) => {
-                    const updatedImages = prevImages.filter((id) => id !== publicId);
-                    setImagesArray(updatedImages); // Pass the updated images array to the parent component
+                    const updatedImages = prevImages.filter((image) => image.public_id !== publicId);
+                    setImagesArray(updatedImages);
                     return updatedImages;
-                });                setSuccessMessage('Image deleted successfully');
+                });
+                setSuccessMessage('Image deleted successfully');
             } else {
                 setError('Failed to delete image from Cloudinary');
             }
@@ -68,10 +66,13 @@ export default function PhotosUpload({ setImagesArray }) {
     };
 
     const handleUploadSuccess = (results) => {
-        const newImageId = results.info.public_id;
+        const newImage = {
+            public_id: results.info.public_id,
+            secure_url: results.info.secure_url
+        };
         setImages((prevImages) => {
-            const updatedImages = [...prevImages, newImageId];
-            setImagesArray(updatedImages); // Pass the updated images array to the parent component
+            const updatedImages = [...prevImages, newImage];
+            setImagesArray(updatedImages);
             return updatedImages;
         });
     };
@@ -87,25 +88,23 @@ export default function PhotosUpload({ setImagesArray }) {
                 ارفع الصور
             </CldUploadButton>
 
-            {/* Display messages */}
             {error && <p className="text-red-500">{error}</p>}
             {successMessage && <p className="text-green-500">{successMessage}</p>}
 
-            {/* Example of rendering uploaded images */}
             <div className="flex flex-wrap w-full gap-2 justify-center items-center">
-                {images.map((publicId) => (
-                    <div key={publicId} className="relative">
+                {images.map((image) => (
+                    <div key={image.public_id} className="relative">
                         <CldImage
                             width="180"
                             height="400"
-                            src={publicId}
+                            src={image.secure_url}
                             sizes="100vw"
                             alt="image"
                             className="min-h-60 max-h-60 w-auto h-auto"
                         />
                         <button
                             className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded"
-                            onClick={() => handleDeleteImage(publicId)}
+                            onClick={() => handleDeleteImage(image.public_id)}
                             type="button"
                         >
                             Delete

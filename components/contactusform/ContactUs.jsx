@@ -38,7 +38,7 @@ export default function ContactUs() {
 
   return (
     <div className='p-8 bg-white text-black'>
-        <h1 className='text-4xl text-center'>إحجز شقة الآن</h1>
+        <h1 className='text-4xl text-center mb-4'>إحجز شقة الآن</h1>
         <p  className='text-2xl text-center line-under-white'>املأ بياناتك وسنقوم بالرد عليك في أقرب وقت ممكن</p>
     <form onSubmit={handleSubmit} className="container mx-auto py-8 px-4 lg:px-0">
       <div className="grid lg:grid-cols-1 gap-4 justify-items-center items-end">

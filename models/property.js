@@ -26,7 +26,7 @@ const propertySchema = new mongoose.Schema({
     twoBedroom: { type: String, required: true },
     threeBedroom: { type: String, required: true },
   },
-  images: { type: [String], default: [] },
+  images: { type: [Object], default: [] },
   paymentPlan: { type: String, required: true },
   strengths: { type: String, required: true },
   features: [{ type: String, required: true }],

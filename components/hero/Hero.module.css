@@ -1,0 +1,17 @@
+.animatedBackground {
+    background-image: url('/dubai-pic.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: scroll 10s linear infinite;
+    width: 100%;
+  }
+  
+  @keyframes scroll {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  

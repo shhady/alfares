@@ -13,7 +13,7 @@ export default function AddProperty() {
       propertiesType: '',
       developer: '',
       deliveryDate: '',
-      Readiness:""
+      readiness:""
     },
     description: '',
     architecturalDesign: {
@@ -122,8 +122,8 @@ export default function AddProperty() {
             </div>
 
             <div className="mb-3 text-right">
-              <label htmlFor="generalInfo.Readiness" className="text-white">الجهوزية</label>
-              <input type="text" name="generalInfo.Readiness" required value={formData.generalInfo.Readiness} onChange={handleChange} className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2" />
+              <label htmlFor="generalInfo.readiness" className="text-white">الجهوزية</label>
+              <input type="text" name="generalInfo.readiness" required value={formData.generalInfo.readiness} onChange={handleChange} className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2" />
             </div>
          
             <div className="mb-3 text-right">

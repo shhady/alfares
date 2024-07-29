@@ -14,7 +14,7 @@ export default async function NewProperties() {
         <h1 className='text-4xl'>احدث العقارات</h1>
         <div className=' border-b-2 w-80'></div>
         <p className=''>اطّلع على أحدث العقارات المعروضة في الإمارات</p>
-        <div className='lg:grid lg:grid-cols-4 md:grid md:grid-cols-2 grid grid-cols-1 max-w-screen-2xl gap-2'>
+        <div className='lg:grid lg:grid-cols-4 md:grid md:grid-cols-2 grid grid-cols-1 max-w-screen-2xl gap-4'>
             {data.slice(0,5).map((property)=>{
                 return <PropertyCard property={property} key={property._id}/>
             })}
