@@ -1,4 +1,4 @@
-import connectToDB from '@/utils/database';
+import {connectToDB} from '@/utils/database';
 import Property from '@/models/property';
 
 export const getPropertyById = async (id) => {

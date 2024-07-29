@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 
 const Modal = ({ show, onClose, onConfirm, confirmText, cancelText, children }) => {
-  if (!show) return null;
+ 
 
   const handleClose = (e) => {
     if (e.target.id === 'modal-overlay') {
@@ -22,7 +22,7 @@ const Modal = ({ show, onClose, onConfirm, confirmText, cancelText, children }) 
       document.removeEventListener('keydown', handleEscape);
     };
   }, [onClose]);
-
+  if (!show) return null;
   return (
     <div
       id="modal-overlay"
