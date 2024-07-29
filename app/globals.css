@@ -31,3 +31,24 @@ body {
     text-wrap: balance;
   }
 }
+
+.hero-height {
+  height: 80vh;
+  max-height: 80vh; /* Assuming the navbar height is 24 (6rem) */
+}
+.line-under::after {
+  content: '';
+  display: block;
+  width: 200px; /* Adjust the width as needed */
+  height: 2px; /* Adjust the height as needed */
+  background-color: black; /* Adjust the color as needed */
+  margin: 1rem auto 0; /* Adjust the margins as needed */
+}
+.line-under-white::after {
+  content: '';
+  display: block;
+  width: 200px; /* Adjust the width as needed */
+  height: 2px; /* Adjust the height as needed */
+  background-color: white; /* Adjust the color as needed */
+  margin: 1rem auto 0; /* Adjust the margins as needed */
+}
