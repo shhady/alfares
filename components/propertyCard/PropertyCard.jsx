@@ -3,9 +3,12 @@ import { CldImage } from 'next-cloudinary'
 import React from 'react'
 
 export default function PropertyCard({property}) {
+  console.log(property);
   return (
-    <div>
-      
+    <div className='relative'>
+        <div className='absolute right-1 top-2 bg-orange-950 text-white rounded-lg p-1'>
+        {property.generalInfo.readiness}
+        </div>
        <CldImage
                             width="200"
                             height="200"

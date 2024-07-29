@@ -1,7 +1,6 @@
 'use client'
 import AddProperty from '@/components/add-property/AddProperty'
 import BlogForm from '@/components/blogForm/BlogForm'
-import { set } from 'mongoose'
 import React, { useState } from 'react'
 
 export default function page() {
