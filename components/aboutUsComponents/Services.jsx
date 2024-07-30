@@ -4,25 +4,25 @@ const services = [
   {
     title: 'المبيعات',
     description: 'مساعدتك في العثور على المنزل المثالي بكل سهولة وثقة.',
-    imgSrc: 'https://willandrich.ae/storage/2024/06/Artboard-1-copy-2-150x150.jpg',
+    imgSrc: 'https://img.icons8.com/windows/96/total-sales--v1.png',
     link: '#',
   },
   {
     title: 'إدارة الممتلكات',
     description: 'تقديم خدمات إدارة احترافية لضمان الحفاظ على استثمارك العقاري',
-    imgSrc: 'https://willandrich.ae/storage/2024/06/Artboard-1-150x150.jpg',
+    imgSrc: 'https://img.icons8.com/ios-filled/100/commercial-development-management.png',
     link: '#',
   },
   {
     title: 'الاستشارات الاستثمارية',
     description: 'إرشادك من خلال الاستثمارات العقارية الاستراتيجية لتعظيم عوائدك وتأمين مستقبلك المالي',
-    imgSrc: 'https://willandrich.ae/storage/2024/06/Artboard-1-copy-3-150x150.jpg',
+    imgSrc: 'https://img.icons8.com/ios-filled/100/consultation.png',
     link: '#',
   },
   {
     title: 'تحليل السوق',
     description: 'تقديم رؤى واتجاهات متعمقة للسوق لمساعدتك على اتخاذ قرارات مستنيرة.',
-    imgSrc: 'https://willandrich.ae/storage/2024/06/Artboard-1-copy-150x150.jpg',
+    imgSrc: 'https://img.icons8.com/dotty/80/financial-analytics.png',
     link: '#',
   },
 ];
@@ -36,7 +36,7 @@ const Services = () => {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {services.map((service, index) => (
-          <div key={index} className="bg-white shadow-md rounded-lg p-4 flex flex-col items-center text-center">
+          <div key={index} className="bg-gray-100 shadow-md rounded-lg p-4 flex flex-col items-center text-center">
             <figure className="mb-4">
               <a href={service.link} tabIndex="-1">
                 <img
@@ -50,7 +50,7 @@ const Services = () => {
                 />
               </a>
             </figure>
-            <h4 className="text-lg font-semibold mb-2">
+            <h4 className="text-lg font-semibold mb-2 text-blue-700">
               <a href={service.link}>{service.title}</a>
             </h4>
             <p>{service.description}</p>
