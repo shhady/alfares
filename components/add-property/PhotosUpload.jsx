@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { CldUploadButton, CldImage } from 'next-cloudinary';
 import crypto from 'crypto';
+import Image from 'next/image';
 
 const generateSHA1 = (data) => {
     const hash = crypto.createHash('sha1');
@@ -23,7 +24,7 @@ export default function PhotosUpload({ setImagesArray, imagesArray }) {
         setSuccessMessage(null);
     };
     useEffect(()=>{
-        if(imagesArray.length > 0) {
+        if(imagesArray?.length > 0) {
             setImages(imagesArray)
         }
     },[imagesArray])
@@ -99,16 +100,17 @@ export default function PhotosUpload({ setImagesArray, imagesArray }) {
 
             <div className="flex flex-wrap w-full gap-2 justify-center items-center">
                 {images.map((image) => (
-                    <div key={image.public_id} className="relative">
-                        <CldImage
+                    <div key={image.public_id} className="relative mt-4">
+                        <Image src={image.secure_url} alt="img" width={100} height={100} className="w-48 h-48"/>
+                        {/* <CldImage
                             width="180"
                             height="400"
                             src={image.secure_url}
                             sizes="100vw"
                             alt="image"
                             
-                            className="min-h-60 max-h-60 w-auto h-auto"
-                        />
+                            className="min-h-60 max-h-60 w-auto h-auto "
+                        /> */}
                         <button
                             className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded"
                             onClick={() => handleDeleteImage(image.public_id)}

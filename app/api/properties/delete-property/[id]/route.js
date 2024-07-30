@@ -1,12 +1,23 @@
+
 import {connectToDB} from '@/utils/database';
 import Property from '@/models/property';
 
-export const deleteProperty = async (id) => {
+export async function DELETE(request, { params }) {
+  await connectToDB();
+  
   try {
-    await connectToDB();
-    await Property.findByIdAndDelete(id);
-    return { message: 'Property deleted successfully' };
+    const { id } = params;
+    if (!id) {
+      return new Response(JSON.stringify({ error: 'ID is required' }), { status: 400 });
+    }
+
+    const deletedProperty = await Property.findByIdAndDelete(id);  
+      if (!deletedProperty) {
+      return new Response(JSON.stringify({ error: 'property not found' }), { status: 404 });
+    }
+
+    return new Response(JSON.stringify(deletedProperty), { status: 200 });
   } catch (error) {
-    throw new Error('Failed to delete property: ' + error.message);
+    return new Response(JSON.stringify({ error: error.message }), { status: 400 });
   }
-};
+}

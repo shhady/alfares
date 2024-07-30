@@ -44,7 +44,6 @@ export default function UpdateProperty({params}) {
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PROD_URL ? process.env.NEXT_PUBLIC_BACKEND_PROD_URL : process.env.NEXT_PUBLIC_BACKEND_DEV_URL }/api/properties/get-property/${id}`);
         const property = await response.json();
-        console.log(property);
         setFormData(property);
       } catch (error) {
         console.error('Error fetching property data:', error);
@@ -54,7 +53,6 @@ export default function UpdateProperty({params}) {
     fetchPropertyData();
   }, [id]);
 
-  console.log(formData);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => {
