@@ -10,6 +10,8 @@ export default function SocialMedia() {
   }
 
   return (
+    <div>
+    <h1 className='text-[1rem] text-start mb-4 hidden md:block border-b-2 border-white py-2'>تواصل</h1>
     <div className="flex justify-center items-center gap-4">
       <Phone className="iconPhone" onClick={() => window.open("tel:0543113297", "_blank")} />
       <Mail className="iconEmail" onClick={sendEmail} />
@@ -27,6 +29,7 @@ export default function SocialMedia() {
       <a href="https://www.facebook.com/shhady.serhan/" target="_blank" rel="noreferrer">
         <Facebook className="iconFacebook" />
       </a>
+    </div>
     </div>
   );
 }
