@@ -1,6 +1,7 @@
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/footer/Footer";
 
 const inter = Roboto({ subsets: ["latin"], weight: '400' });
 
@@ -17,6 +18,8 @@ export default function RootLayout({ children }) {
         <div className="mt-24 font-sans">
         {children}
         </div>
+        <div className="p-8 font-sans">
+        <Footer /></div>
         </body>
     </html>
   );
