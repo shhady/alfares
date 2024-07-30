@@ -20,7 +20,6 @@ import { FreeMode,EffectFade, Navigation, Thumbs,Pagination } from 'swiper/modul
 
 
 export function SwiperComponent({images}) {
-  console.log(images);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   useEffect(() => {
     const handleResize = () => {

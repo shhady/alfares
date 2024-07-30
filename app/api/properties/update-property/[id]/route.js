@@ -4,7 +4,6 @@ import Property from '@/models/property';
 
 export async function PUT(request, { params }) {
   await connectToDB();
-  console.log(request);
   try {
     const { id } = params;
     const data = await request.json();

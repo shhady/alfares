@@ -31,7 +31,6 @@ export default  function BlogList() {
       }, []);
    
     
-    console.log('Fetched Blogs:', data); // Log the fetched data to check
   
     return (
       <div className='p-8 flex flex-col items-center'>

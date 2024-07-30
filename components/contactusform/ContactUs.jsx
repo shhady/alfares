@@ -29,7 +29,6 @@ export default function ContactUs() {
         body: JSON.stringify(formData)
       });
       const newUser = await response.json();
-      console.log('Form Data Submitted:', newUser);
     } catch (error) {
       console.error('Error submitting form data:', error);
     }

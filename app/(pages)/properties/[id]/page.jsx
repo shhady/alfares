@@ -12,7 +12,6 @@ export default async function page({params}) {
       return <div className='mt-8 flex justify-center items-center'>No products found</div>;;
     }
     const data = await response.json();
-    console.log(data);
 
    
   return (

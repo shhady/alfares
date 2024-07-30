@@ -11,7 +11,6 @@ const ClientComponent = ({ data }) => {
       const location = searchParams.get('location');
 
       const deliveryDate = searchParams.get('deliveryDate');
-      console.log(propertiesType);
   useEffect(() => {
     // const { propertiesType, location, deliveryDate } = router.query;
 

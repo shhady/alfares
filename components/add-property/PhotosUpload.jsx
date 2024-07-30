@@ -53,12 +53,11 @@ export default function PhotosUpload({ setImagesArray, imagesArray }) {
             });
 
             const data = await response.json();
-            console.log(data);
-
+           
             if (data.result === 'ok') {
                 setImages((prevImages) => {
                     const updatedImages = prevImages.filter((image) => image.public_id !== publicId);
-                    console.log(updatedImages);
+                   
                     setImagesArray(updatedImages);
                     return updatedImages;
                 });

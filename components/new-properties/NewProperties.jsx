@@ -8,7 +8,6 @@ export default async function NewProperties() {
     return <div className='mt-8 flex justify-center items-center'>No products found</div>;;
   }
   const data = await response.json();
-  console.log(data);
   return (
     <div className='p-8 text-center flex flex-col gap-4 justify-center items-center bg-white text-black'>
         <h1 className='text-4xl'>احدث العقارات</h1>

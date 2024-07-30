@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {Camera} from 'lucide-react'
 export default function PropertyCard({property}) {
-  console.log(property);
   return (
     <Link href={`/properties/${property._id}`}>
       <div className='relative roun'>

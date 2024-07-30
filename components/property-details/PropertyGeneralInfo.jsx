@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function PropertyGeneralInfo({data}) {
-  console.log(data);
   return (
     <div className='p-2 shadow-2xl flex flex-col gap-2'>
         <div className='text-2xl my-2'>

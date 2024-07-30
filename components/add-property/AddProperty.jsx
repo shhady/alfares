@@ -57,14 +57,13 @@ export default function AddProperty() {
   };
 
   const handleImagesArray = (imagesArray) => {
-    console.log(formData.images);
-    console.log(imagesArray);
+   
     setFormData((prevState) => ({
       ...prevState,
       images: imagesArray
     }));
   };
-  console.log(formData.images);
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation';
 export default function UpdateProperty({params}) {
 
     const id = (usePathname().split('/')[3]);
-    console.log(id);
   const [formData, setFormData] = useState({
     generalInfo: {
       name: '',
