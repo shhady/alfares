@@ -48,7 +48,7 @@ const HeroFilter = ({ data }) => {
             onChange={handleFilterChange}
             className="w-full p-2 border border-gray-300 rounded-md"
           >
-            <option value="">Select Property Type</option>
+            <option value="">نوع العقار</option>
             {uniqueOptions('propertiesType').map((option, index) => (
               <option key={index} value={option}>
                 {option}
@@ -65,7 +65,7 @@ const HeroFilter = ({ data }) => {
             onChange={handleFilterChange}
             className="w-full p-2 border border-gray-300 rounded-md"
           >
-            <option value="">Select Location</option>
+            <option value="">الموقع</option>
             {uniqueOptions('location').map((option, index) => (
               <option key={index} value={option}>
                 {option}
@@ -82,7 +82,7 @@ const HeroFilter = ({ data }) => {
             onChange={handleFilterChange}
             className="w-full p-2 border border-gray-300 rounded-md"
           >
-            <option value="">Select Delivery Date</option>
+            <option value="">تاريخ التسليم</option>
             {uniqueOptions('deliveryDate').map((option, index) => (
               <option key={index} value={new Date(option).getFullYear()}>
                 {new Date(option).getFullYear()}
