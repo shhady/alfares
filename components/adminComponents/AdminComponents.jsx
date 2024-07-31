@@ -43,18 +43,18 @@ export default function AdminComponents() {
           </button>
         </div>
         <nav className="flex flex-col space-y-2">
-          <a href="#" className="flex items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e)=>handleClickIcon(e,'add-property-form')}>
+          <div className="flex items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e)=>handleClickIcon(e,'add-property-form')}>
             <PlusCircle className="w-6 h-6" /> <span className={`${isSidebarOpen ? 'block' : 'hidden'} lg:block ml-2`}>اضف مشروع</span>
-          </a>
-          <a href="#" className="flex items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e)=>handleClickIcon(e,'add-blog-form')}>
+          </div>
+          <div className="flex items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e)=>handleClickIcon(e,'add-blog-form')}>
             <FileText className="w-6 h-6" /> <span className={`${isSidebarOpen ? 'block' : 'hidden'} lg:block ml-2`}>اضف مدونه</span>
-          </a>
-          <a href="#" className="flex items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e)=>handleClickIcon(e,'All-properties')}>
+          </div>
+          <div className="flex items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e)=>handleClickIcon(e,'All-properties')}>
             <Home className="w-6 h-6" /> <span className={`${isSidebarOpen ? 'block' : 'hidden'} lg:block ml-2`}>جميع المشاريع</span>
-          </a>
-          <a href="#" className="flex items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e)=>handleClickIcon(e,'All-users')}>
+          </div>
+          <div className="flex items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e)=>handleClickIcon(e,'All-users')}>
             <Users className="w-6 h-6" /> <span className={`${isSidebarOpen ? 'block' : 'hidden'} lg:block ml-2`}>جميع المستخدمين</span>
-          </a>
+          </div>
         </nav>
       </div>
 
