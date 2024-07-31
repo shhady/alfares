@@ -5,25 +5,22 @@ const services = [
     title: 'المبيعات',
     description: 'مساعدتك في العثور على المنزل المثالي بكل سهولة وثقة.',
     imgSrc: 'https://img.icons8.com/windows/96/total-sales--v1.png',
-    link: '#',
   },
   {
     title: 'إدارة الممتلكات',
     description: 'تقديم خدمات إدارة احترافية لضمان الحفاظ على استثمارك العقاري',
     imgSrc: 'https://img.icons8.com/ios-filled/100/commercial-development-management.png',
-    link: '#',
   },
   {
     title: 'الاستشارات الاستثمارية',
     description: 'إرشادك من خلال الاستثمارات العقارية الاستراتيجية لتعظيم عوائدك وتأمين مستقبلك المالي',
     imgSrc: 'https://img.icons8.com/ios-filled/100/consultation.png',
-    link: '#',
   },
   {
     title: 'تحليل السوق',
     description: 'تقديم رؤى واتجاهات متعمقة للسوق لمساعدتك على اتخاذ قرارات مستنيرة.',
     imgSrc: 'https://img.icons8.com/dotty/80/financial-analytics.png',
-    link: '#',
+    
   },
 ];
 
@@ -38,7 +35,7 @@ const Services = () => {
         {services.map((service, index) => (
           <div key={index} className="bg-gray-100 shadow-md rounded-lg p-4 flex flex-col items-center text-center">
             <figure className="mb-4">
-              <a href={service.link} tabIndex="-1">
+              <div tabIndex="-1">
                 <img
                   loading="lazy"
                   decoding="async"
@@ -48,10 +45,10 @@ const Services = () => {
                   alt={service.title}
                   className="transition-transform duration-200 transform hover:scale-105"
                 />
-              </a>
+              </div>
             </figure>
             <h4 className="text-lg font-semibold mb-2 text-blue-700">
-              <a href={service.link}>{service.title}</a>
+              <div>{service.title}</div>
             </h4>
             <p>{service.description}</p>
           </div>

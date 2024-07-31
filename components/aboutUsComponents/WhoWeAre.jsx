@@ -21,14 +21,6 @@ const WhoWeAre = () => {
           </p>
         </div>
       </div>
-      {/* <div className="text-center mt-8">
-        <a
-          href="#learn-more"
-          className="inline-block bg-blue-600 text-white text-lg font-semibold py-2 px-6 rounded hover:bg-blue-700 transition duration-200"
-        >
-          اعرف المزيد
-        </a>
-      </div> */}
     </div>
   );
 };
