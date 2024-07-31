@@ -51,3 +51,27 @@ body {
   background-color: white; /* Adjust the color as needed */
   margin: 1rem auto 0; /* Adjust the margins as needed */
 }
+/* Global CSS */
+.sidebar {
+  transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    display: block !important;
+  }
+}
+
+/* Custom form input styling */
+.form-input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  width: 100%;
+}
+
+.form-input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+

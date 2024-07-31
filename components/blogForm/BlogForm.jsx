@@ -46,7 +46,7 @@ const BlogForm = () => {
     <div className="flex flex-col justify-center items-center "> 
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {success && <p style={{ color: 'green' }}>{success}</p>}
-      <form onSubmit={handleSubmit} className='w-screen max-w-screen-lg p-8 gap-8'>
+      <form onSubmit={handleSubmit} className='w-full max-w-screen-lg p-8 gap-8'>
         <div className='lg:flex gap-4'>
         <div className="w-full max-w-screen-lg mb-4 text-right">
           <label htmlFor="title">العنوان</label>

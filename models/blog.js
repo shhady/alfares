@@ -6,7 +6,7 @@ const BlogSchema = new mongoose.Schema({
   author: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
   tags: [String],
-});
+}, { timestamps: true });
 
 const Blog = mongoose.models?.Blog || mongoose.model('Blog', BlogSchema);
 

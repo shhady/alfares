@@ -1,7 +1,6 @@
 import PropertyGeneralInfo from '@/components/property-details/PropertyGeneralInfo';
 import PropertyMoreInfo from '@/components/property-details/PropertyMoreInfo';
 import { SwiperComponent } from '@/components/property-swiper/Swiper'
-import DeleteUpdateButtons from '@/components/update-property/DeleteUpdateButtons';
 import React from 'react'
 
 export default async function page({params}) {
@@ -16,7 +15,7 @@ export default async function page({params}) {
    
   return (
     <div className='md:px-8 bg-white'>
-      <DeleteUpdateButtons id={id}/>
+      
         
 <div className=' text-black max-w-screen-2xl m-auto'>
         <div className='py-8 px-4 md:px-8 w-full flex justify-between items-center'>
