@@ -35,7 +35,7 @@ export default function AdminComponents() {
   return (
     <div className="flex ">
       {/* Sidebar */}
-      <div className={`z-50 p-2 lg:p-8 bg-gray-600 text-white transition-all duration-300 ${isSidebarOpen ? 'fixed w-full h-screen' : 'w-16'} lg:w-64`} onClick={handleSidebarToggle}>
+      <div className={`z-40 p-2 lg:p-8 bg-gray-600 text-white transition-all duration-300 ${isSidebarOpen ? 'fixed w-full h-screen' : 'w-16'} lg:w-64`} onClick={handleSidebarToggle}>
         <div className="flex items-center justify-between p-2">
           <h2 className={`text-xl font-bold ${isSidebarOpen ? 'block' : 'hidden'} lg:block`}>My App</h2>
           <button className="lg:hidden focus:outline-none" onClick={() => setIsSidebarOpen(true)}>
@@ -59,7 +59,7 @@ export default function AdminComponents() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 p-8 bg-gray-800 transition-all duration-300">
+      <div className="flex-1 bg-gray-800 transition-all duration-300">
         {showForm === 'add-property-form' && <AddProperty />}
         {showForm === 'add-blog-form' && <BlogForm />}
         {showForm === 'All-properties' && <AllProperties />}

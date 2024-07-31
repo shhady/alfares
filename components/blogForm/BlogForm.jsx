@@ -43,7 +43,7 @@ const BlogForm = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center "> 
+    <div className="flex flex-col justify-start items-center min-h-screen"> 
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {success && <p style={{ color: 'green' }}>{success}</p>}
       <form onSubmit={handleSubmit} className='w-full max-w-screen-lg p-8 gap-8'>
