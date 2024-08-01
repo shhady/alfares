@@ -5,13 +5,47 @@
     animation: scroll 10s linear infinite;
     width: 100%;
   }
-  
-  @keyframes scroll {
-    0% {
-      background-position: 0% 50%;
+  @keyframes slideUp {
+    from {
+      background-position: center top;
     }
-    100% {
-      background-position: 100% 50%;
+    to {
+      background-position: center bottom;
     }
   }
   
+  .animatedBackground {
+    animation: slideUp 5s ease-in-out forwards;
+    background-image: url('/dubai-pic.jpg'); /* Make sure to use the correct path to your image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom; /* Ensure this matches the initial position in the animation */
+  }
+  
+  @keyframes contentSlideDown {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .content {
+    color: white;
+    animation: contentSlideDown 2s ease-out forwards;
+  }
+
+  @media (max-width: 768px) {
+    .animatedBackground {
+      animation: slideUp 3s ease-in-out forwards;
+    }
+  
+    .content {
+      animation: contentSlideDown 2s ease-out forwards;
+    }
+  }
+  
+ 

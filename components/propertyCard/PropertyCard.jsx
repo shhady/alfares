@@ -20,7 +20,9 @@ export default function PropertyCard({property}) {
                             className="min-h-60 max-h-60 w-full h-auto object-cover rounded-t-lg "
                         />
                         <div className='flex flex-col justify-start items-start'>
+                        <div className='font-semibold'>الاسم: {property.generalInfo.name}</div>
                        <div className='font-semibold'>الموقع: {property.generalInfo.location}</div>
+                       <div className='font-semibold'>المطور: {property.generalInfo.developer}</div>
                        <div className='font-semibold'>النوع: {property.generalInfo.propertiesType}</div>
                        <div className='font-semibold'>السعر الادنى: {property.generalInfo.minPrice}</div>
                         </div>

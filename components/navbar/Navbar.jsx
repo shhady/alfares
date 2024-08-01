@@ -40,7 +40,7 @@ export default function Navbar() {
                 </ul>
             </div>
             <div className="lg:hidden absolute right-4" onClick={toggleMenu}>
-                <Menu />
+                <Menu className='text-white'/>
             </div>
             <div className={`absolute top-24 left-0 right-0 bg-[#303030] lg:hidden ${openMenu ? 'flex' : 'hidden'} flex-col items-center gap-6 py-4`}>
                 <ul className="flex flex-col items-center gap-4">

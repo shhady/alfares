@@ -5,7 +5,7 @@ export default function AboutHome() {
     <div className='bg-[#191919] text-white flex'>
       <div className=' h-full xl:flex gap-4 xl:gap-8 justify-center items-center  max-w-screen-2xl m-auto'>
         <div className='flex flex-col gap-3 justify-start items-start p-8'>
-          <h1 className='text-3xl font-bold'>عدي فارس - خبير الاستثمار العقاري في دبي</h1>
+          <h1 className='text-3xl font-bold text-center mb-8'>عدي فارس - خبير الاستثمار العقاري في دبي</h1>
           <h2 className='text-2xl font-medium'>خبرة موثوقة، نتائج متميزة</h2>
 
 <p>

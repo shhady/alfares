@@ -33,7 +33,7 @@ export default  function BlogList() {
     
   
     return (
-      <div className='p-8 flex flex-col items-center'>
+      <div className='p-8 flex flex-col items-center min-h-dvh'>
         <h1 className="text-3xl text-center relative inline-block mb-8 py-4">
           المدونة
           <span className="block border-b-2 border-white w-full absolute bottom-0 left-0"></span>
