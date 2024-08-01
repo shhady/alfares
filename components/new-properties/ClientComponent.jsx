@@ -10,15 +10,15 @@ const ClientComponent = ({ data }) => {
       const propertiesType = searchParams.get('propertiesType');
       const location = searchParams.get('location');
 
-      const deliveryDate = searchParams.get('deliveryDate');
+      const developer = searchParams.get('developer');
   useEffect(() => {
-    // const { propertiesType, location, deliveryDate } = router.query;
+    // const { propertiesType, location, developer } = router.query;
 
     // Initialize filterOptions based on URL parameters
     const initialFilterOptions = {
       propertiesType: propertiesType || '',
       location: location || '',
-      deliveryDate: deliveryDate ? deliveryDate.toString() : '',
+      developer: developer || '',
       minPrice: '',
       maxPrice: '',
       sortOption: '',
@@ -39,8 +39,8 @@ const ClientComponent = ({ data }) => {
       filtered = filtered.filter(property => property.generalInfo.location === filterOptions.location);
     }
 
-    if (filterOptions.deliveryDate) {
-      filtered = filtered.filter(property => new Date(property.generalInfo.deliveryDate).getFullYear() === parseInt(filterOptions.deliveryDate));
+    if (filterOptions.developer) {
+      filtered = filtered.filter(property => property.generalInfo.developer === filterOptions.developer);
     }
 
     if (filterOptions.minPrice) {
@@ -72,7 +72,7 @@ const ClientComponent = ({ data }) => {
     const query = new URLSearchParams();
     if (newFilters.propertiesType) query.set('propertiesType', newFilters.propertiesType);
     if (newFilters.location) query.set('location', newFilters.location);
-    if (newFilters.deliveryDate) query.set('deliveryDate', newFilters.deliveryDate);
+    if (newFilters.developer) query.set('developer', newFilters.developer);
     
     router.push(`/properties?${query.toString()}`, undefined, { shallow: true });
   };

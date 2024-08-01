@@ -1,10 +1,11 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { Home, FileText, Users, PlusCircle, Menu } from 'lucide-react';
+import { Home, FileText, Users, PlusCircle, Menu, LogOut } from 'lucide-react';
 import AddProperty from '@/components/add-property/AddProperty';
 import BlogForm from '@/components/blogForm/BlogForm';
 import AllProperties from '@/components/adminComponents/all-properties/AllProperties';
 import AllUsers from '@/components/adminComponents/all-users/AllUsers';
+import { SignOutButton } from '@clerk/nextjs'
 
 export default function AdminComponents() {
   const [showForm, setShowForm] = useState('add-property-form');
@@ -73,6 +74,9 @@ export default function AdminComponents() {
           </div>
           <div className="flex gap-2  items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e) => handleClickIcon(e, 'All-users')}>
             <Users className="w-6 h-6" /> <span className={`${isSidebarOpen ? 'block' : 'hidden'} lg:block ml-2`}>جميع المستخدمين</span>
+          </div>
+          <div className="flex gap-2  items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" >
+            <LogOut className="w-6 h-6" /> <SignOutButton className={`${isSidebarOpen ? 'block' : 'hidden'} lg:block ml-2`}>خروج</SignOutButton>
           </div>
         </nav>
       </div>

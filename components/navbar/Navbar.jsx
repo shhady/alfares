@@ -4,12 +4,16 @@ import Image from 'next/image'
 import { Menu } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-
+import { useUser } from '@clerk/nextjs'
 export default function Navbar() {
     const [openMenu, setOpenMenu] = useState(false)
     const pathName = usePathname()
+    const {user, isSignedIn} = useUser();
 
-    const toggleMenu = () => {
+   if(isSignedIn) {
+       console.log(user.publicMetadata?.role);
+   }
+        const toggleMenu = () => {
         setOpenMenu(!openMenu)
     }
 
@@ -20,6 +24,7 @@ export default function Navbar() {
             <div className="flex-grow flex justify-center lg:justify-start">
                 <Image src='/logo-trans.png' alt="logo" width={200} height={100} />
             </div>
+            
             <div className="hidden lg:flex gap-4">
                 <ul className="flex gap-6">
                     <Link href='/'>

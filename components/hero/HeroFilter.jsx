@@ -9,7 +9,7 @@ const HeroFilter = ({ data }) => {
   const [filterOptions, setFilterOptions] = useState({
     propertiesType: '',
     location: '',
-    deliveryDate: '',
+    developer: '',
   });
 
   const handleFilterChange = (e) => {
@@ -21,13 +21,13 @@ const HeroFilter = ({ data }) => {
   };
 
   const handleSearch = () => {
-    const { propertiesType, location, deliveryDate } = filterOptions;
+    const { propertiesType, location, developer } = filterOptions;
 
     // Create query parameters based on selected filters
     const query = new URLSearchParams();
     if (propertiesType) query.set('propertiesType', propertiesType);
     if (location) query.set('location', location);
-    if (deliveryDate) query.set('deliveryDate', deliveryDate);
+    if (developer) query.set('developer', developer);
 
     // Navigate to the properties page with the query string
     router.push(`/properties?${query.toString()}`);
@@ -77,15 +77,15 @@ const HeroFilter = ({ data }) => {
         {/* Delivery Date */}
         <div className="relative">
           <select
-            name="deliveryDate"
-            value={filterOptions.deliveryDate}
+            name="developer"
+            value={filterOptions.developer}
             onChange={handleFilterChange}
             className="w-full p-2 border border-gray-300 rounded-md"
           >
-            <option value="">تاريخ التسليم</option>
-            {uniqueOptions('deliveryDate').map((option, index) => (
-              <option key={index} value={new Date(option).getFullYear()}>
-                {new Date(option).getFullYear()}
+            <option value="">المطور</option>
+            {uniqueOptions('developer').map((option, index) => (
+              <option key={index} value={option}>
+                {option}
               </option>
             ))}
           </select>

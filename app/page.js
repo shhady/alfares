@@ -5,11 +5,17 @@ import { HeroParallaxDemo } from '@/components/hero/HeroParallaxDemo'
 import NewProperties from '@/components/new-properties/NewProperties'
 import React from 'react'
 
-export default function Home() {
+export default async function Home() {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PROD_URL ? process.env.NEXT_PUBLIC_BACKEND_PROD_URL : process.env.NEXT_PUBLIC_BACKEND_DEV_URL }/api/properties/get-properties`,
+  { next: { revalidate: 360 } });
+  if (!response.ok) {
+    return <div className='mt-8 flex justify-center items-center'>No products found</div>;;
+  }
+  const data = await response.json();
   return (
     <div>
       <Hero />
-      <NewProperties />
+      <NewProperties data={data}/>
       <AboutHome />
       <ContactUs />
     </div>
