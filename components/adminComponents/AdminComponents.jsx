@@ -1,5 +1,5 @@
-'use client'
-import React, { useState, useEffect } from 'react';
+'use client';
+import React, { useState, useEffect, useRef } from 'react';
 import { Home, FileText, Users, PlusCircle, Menu } from 'lucide-react';
 import AddProperty from '@/components/add-property/AddProperty';
 import BlogForm from '@/components/blogForm/BlogForm';
@@ -10,6 +10,7 @@ export default function AdminComponents() {
   const [showForm, setShowForm] = useState('add-property-form');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const sidebarRef = useRef(null);
 
   useEffect(() => {
     const updateMedia = () => {
@@ -20,9 +21,20 @@ export default function AdminComponents() {
     return () => window.removeEventListener('resize', updateMedia);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setIsSidebarOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   const handleSidebarToggle = (e) => {
     if (!isDesktop) {
-       
       setIsSidebarOpen(!isSidebarOpen);
     }
   };
@@ -30,12 +42,19 @@ export default function AdminComponents() {
   const handleClickIcon = (e, show) => {
     e.stopPropagation();
     setIsSidebarOpen(false);
-     setShowForm(show);
-  }
+    setShowForm(show);
+  };
+
   return (
-    <div className="flex ">
+    <div className="flex w-full">
       {/* Sidebar */}
-      <div className={`z-40 p-2 lg:p-8 bg-gray-600 text-white transition-all duration-300 ${isSidebarOpen ? 'fixed w-full h-screen' : 'w-16'} lg:w-64`} onClick={handleSidebarToggle}>
+      <div
+        ref={sidebarRef}
+        className={`z-40 p-2 lg:p-8 bg-gray-600 text-white transition-all duration-300 ${
+          isSidebarOpen ? 'fixed w-1/2 h-screen' : 'w-16'
+        } lg:w-64`}
+        onClick={handleSidebarToggle}
+      >
         <div className="flex items-center justify-between p-2">
           <h2 className={`text-xl font-bold ${isSidebarOpen ? 'block' : 'hidden'} lg:block`}>My App</h2>
           <button className="lg:hidden focus:outline-none" onClick={() => setIsSidebarOpen(true)}>
@@ -43,16 +62,16 @@ export default function AdminComponents() {
           </button>
         </div>
         <nav className="flex flex-col space-y-2">
-          <div className="flex items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e)=>handleClickIcon(e,'add-property-form')}>
+          <div className="flex gap-2  items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e) => handleClickIcon(e, 'add-property-form')}>
             <PlusCircle className="w-6 h-6" /> <span className={`${isSidebarOpen ? 'block' : 'hidden'} lg:block ml-2`}>اضف مشروع</span>
           </div>
-          <div className="flex items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e)=>handleClickIcon(e,'add-blog-form')}>
+          <div className="flex gap-2 items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e) => handleClickIcon(e, 'add-blog-form')}>
             <FileText className="w-6 h-6" /> <span className={`${isSidebarOpen ? 'block' : 'hidden'} lg:block ml-2`}>اضف مدونه</span>
           </div>
-          <div className="flex items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e)=>handleClickIcon(e,'All-properties')}>
+          <div className="flex gap-2  items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e) => handleClickIcon(e, 'All-properties')}>
             <Home className="w-6 h-6" /> <span className={`${isSidebarOpen ? 'block' : 'hidden'} lg:block ml-2`}>جميع المشاريع</span>
           </div>
-          <div className="flex items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e)=>handleClickIcon(e,'All-users')}>
+          <div className="flex gap-2  items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e) => handleClickIcon(e, 'All-users')}>
             <Users className="w-6 h-6" /> <span className={`${isSidebarOpen ? 'block' : 'hidden'} lg:block ml-2`}>جميع المستخدمين</span>
           </div>
         </nav>

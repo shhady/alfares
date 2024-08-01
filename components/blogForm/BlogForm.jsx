@@ -43,15 +43,16 @@ const BlogForm = () => {
   };
 
   return (
-    <div className="flex flex-col justify-start items-center min-h-screen "> 
+    <div className="flex flex-col justify-start items-center min-h-screen bg-white "> 
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {success && <p style={{ color: 'green' }}>{success}</p>}
       <form onSubmit={handleSubmit} className='w-full max-w-screen-lg p-8 gap-8'>
+        <h1 className='text-2xl font-bold mb-8'>اكتب مدونة</h1>
         <div className='lg:flex gap-4'>
         <div className="w-full max-w-screen-lg mb-4 text-right">
           <label htmlFor="title text-white">العنوان</label>
           <input
-          className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2"
+          className="form-control mt-2 block w-full rounded-md border-b-2 border-black shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200"
             type="text"
             id="title"
             value={title}
@@ -62,7 +63,7 @@ const BlogForm = () => {
         <div className="w-full max-w-screen-lg mb-4 text-right">
           <label htmlFor="author text-white">الكاتب</label>
           <input
-          className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2"
+          className="form-control mt-2 block w-full rounded-md border-b-2 border-black shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200"
             type="text"
             id="author"
             value={author}
@@ -74,7 +75,7 @@ const BlogForm = () => {
         <div className="w-full mb-3 text-right">
           <label htmlFor="content text-white">المحتوى</label>
           <textarea
-          className="form-control mt-4 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 h-24 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2"
+          className="form-control mt-4 block w-full rounded-md border-b-2 border-black shadow-sm focus:border-indigo-300 h-24 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200"
             id="content"
             value={content}
             onChange={(e) => setContent(e.target.value)}

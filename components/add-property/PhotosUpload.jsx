@@ -87,11 +87,14 @@ export default function PhotosUpload({ setImagesArray, imagesArray }) {
         <>
             <CldUploadButton
                 uploadPreset="alfares"
-                className="bg-lime-800 w-full rounded-lg p-2 max-w-screen-lg"
+                className=" w-full p-2 max-w-screen-lg   mt-4 inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#303030,45%,white,55%,#303030)] bg-[length:200%_100%] px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
                 onSuccess={handleUploadSuccess}
                 onClick={handleResetErrorAndSuccess}
             >
-                ارفع الصور
+                 {/* <button className=" w-full mt-4 inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#303030,45%,white,55%,#303030)] bg-[length:200%_100%] px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"> */}
+                 ارفع الصور
+
+             {/* </button> */}
             </CldUploadButton>
 
             {error && <p className="text-red-500">{error}</p>}
