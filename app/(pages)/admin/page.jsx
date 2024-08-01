@@ -8,6 +8,7 @@ export default async function page() {
     if (role !== 'admin') {
         redirect('/');  // Absolute URL is not required here
       }
+      console.log('test')
   return (
     <div>
       <AdminComponents />  
