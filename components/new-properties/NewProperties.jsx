@@ -11,10 +11,10 @@ export default async function NewProperties() {
   const data = await response.json();
   return (
     <div>
-                <h1 className='text-4xl text-center mt-8'>تخصيص البحث</h1>
+                {/* <h1 className='text-4xl text-center mt-8'>تخصيص البحث</h1>
 
         <HeroFilter data={data}/>
-    
+     */}
     <div className='p-8 text-center flex flex-col gap-4 justify-center items-center bg-white text-black'>
         <h1 className='text-4xl'>احدث العقارات</h1>
         <div className=' border-b-2 w-80'></div>

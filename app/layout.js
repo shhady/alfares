@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
         <div className="mt-24 font-sans">
         {children}
         </div>
-        <div className="p-8 font-sans">
+        <div className=" font-sans">
         <Footer /></div>
         </body>
     </html>
