@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 export default function Footer() {
   return (
-    <div className='flex flex-col gap-4 md:flex md:flex-row justify-between p-4 text-center w-full md:gap-8 '>
+    <div className='flex flex-col gap-4 md:flex md:flex-row justify-between p-4 text-center w-full md:gap-8 bg-[#303030]'>
         <div className='md:flex justify-center items-center gap-4'>
             <Image src={'/logo-trans.png'} alt='logo' width={150} height={150}/>
             <div className='flex flex-col justify-start items-start gap-4'>
