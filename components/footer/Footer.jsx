@@ -26,7 +26,7 @@ export default function Footer() {
                         <li>تواصل معي</li>
                     </Link>
                     <Link href='/blog'>
-                        <li>مدونه</li>
+                        <li>مقالات</li>
                     </Link>
                     <Link href='/about'>
                         <li>من نحن</li>

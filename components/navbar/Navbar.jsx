@@ -40,7 +40,7 @@ export default function Navbar() {
                         <li className={isActive('/contact')}>تواصل معي</li>
                     </Link>
                     <Link href='/blog'>
-                        <li className={isActive('/blog')}>مدونه</li>
+                        <li className={isActive('/blog')}>مقالات</li>
                     </Link>
                     <Link href='/about'>
                         <li className={isActive('/about')}>من نحن</li>
@@ -77,7 +77,7 @@ export default function Navbar() {
                         <li className={isActive('/contact')}>تواصل معي</li>
                     </Link>
                     <Link href='/blog' onClick={toggleMenu}>
-                        <li className={isActive('/blog')}>مدونه</li>
+                        <li className={isActive('/blog')}>مقالات</li>
                     </Link>
                     <Link href='/about' onClick={toggleMenu}>
                         <li className={isActive('/about')}>من نحن</li>

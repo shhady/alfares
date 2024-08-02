@@ -56,7 +56,7 @@ const BlogForm = () => {
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {success && <p style={{ color: 'green' }}>{success}</p>}
       <form onSubmit={handleSubmit} className='w-full max-w-screen-lg p-8 gap-8'>
-        <h1 className='text-2xl font-bold mb-8'>اكتب مدونة</h1>
+        <h1 className='text-2xl font-bold mb-8'>اكتب مقالة</h1>
         <div className='lg:flex gap-4'>
         <div className="w-full max-w-screen-lg mb-4 text-right">
           <label htmlFor="title text-white">العنوان</label>
