@@ -14,12 +14,12 @@ export default async function page({params}) {
 
    
   return (
-    <div className='md:px-8 bg-white'>
+    <div className='md:px-8 pb-8 bg-white'>
       
         
-<div className=' text-black max-w-screen-2xl m-auto'>
+<div className=' text-black max-w-screen-2xl m-auto '>
         <div className='py-8 px-4 md:px-8 w-full flex justify-between items-center'>
-            <div className='text-2xl'>
+            <div className='text-2xl font-semibold'>
                 {data.generalInfo.name}
             </div>
             <div className='flex flex-col text-center'>

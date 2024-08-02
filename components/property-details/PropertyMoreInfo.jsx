@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function PropertyMoreInfo({data}) {
   return (
-    <div  className='p-2 shadow-2xl flex flex-col gap-2 mt-4'>
+    <div  className='p-2 pb-8 shadow-2xl flex flex-col gap-2 mt-4'>
         <div className='text-2xl mt-2 '>تفاصيل اوفى</div>
         <div className='font-bold mt-2'>وصف العقار</div>
         <div>{data.description}</div>
