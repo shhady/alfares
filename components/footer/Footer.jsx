@@ -7,15 +7,15 @@ export default function Footer() {
     <div className='flex flex-col gap-4 md:flex md:flex-row justify-between p-8 text-center w-full text-white md:gap-8 bg-[#303030]'>
         <div className='md:flex justify-center items-center gap-4'>
             <Image src={'/logo-trans.png'} alt='logo' width={150} height={150}/>
-            <div className='flex flex-col justify-start items-start gap-4'>
-            <div>عنوان </div> 
+            <div className='flex flex-col justify-start items-start gap-8'>
+            <div>عنوان:</div> 
            <div>هاتف: </div> 
            <div>ايميل: </div> 
             </div>
           
         </div>
         <div>
-        <ul className="flex flex-col items-center gap-4">
+        <ul className="flex flex-col items-center gap-4 m-4">
                     <Link href='/'>
                         <li>الرئيسية</li>
                     </Link>

@@ -4,7 +4,7 @@ import { TextGenerateEffect } from "../ui/text-generate-effect";
 
 export default function AboutHome() {
   return (
-    <div className='bg-[#191919] text-white flex md:h-[80vh]'>
+    <div className='bg-[#191919] text-white flex xl:h-[80vh]'>
       <div className='pb-8  xl:flex gap-4 xl:gap-8 justify-center items-center  max-w-screen-2xl m-auto'>
         <div className='flex flex-col gap-3 justify-start items-start p-8'>
           <h1 className='text-3xl font-bold text-center mb-8 md:text-start md:w-fit w-full line-under-white'>عدي فارس <br/> خبير الاستثمار العقاري في دبي</h1>
@@ -21,14 +21,22 @@ export default function AboutHome() {
       </div>
         <div className='flex justify-center items-center lg:p-8'>
         <iframe 
-          src="https://www.facebook.com/plugins/video.php?height=476&amp;href=https%3A%2F%2Fwww.facebook.com%2Freel%2F913547600274614%2F&amp;show_text=false&amp;width=267&amp;t=0" 
-          width="full" 
-          height="476" 
-          scrolling="no" 
-          frameBorder="0" 
-          allowFullScreen="allowfullscreen" 
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 
-          style={{ border: 'none', overflow: 'hidden' }}
+src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F800700985599718%2F&show_text=false&width=267&t=0" 
+width="350"
+ height="476"
+ style={{border:'none',overflow:'hidden'}}
+  scrolling="no" 
+  frameborder="0" 
+  allowfullscreen="true" 
+  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 
+  allowFullScreen="true" 
+// width="full" 
+//           height="476" 
+//           scrolling="no" 
+//           frameBorder="0" 
+//           allowFullScreen="allowfullscreen" 
+//           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 
+        //   style={{ border: 'none', overflow: 'hidden' }}
           
         ></iframe>
       </div>

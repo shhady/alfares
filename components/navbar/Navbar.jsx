@@ -4,7 +4,9 @@ import Image from 'next/image'
 import { Menu } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useUser } from '@clerk/nextjs'
+import { useUser, isSignedIn, SignOutButton } from '@clerk/nextjs'
+import { FaFacebook, FaInstagram,  FaWhatsapp,FaPhone } from "react-icons/fa"
+
 export default function Navbar() {
     const [openMenu, setOpenMenu] = useState(false)
     const pathName = usePathname()
@@ -21,7 +23,8 @@ export default function Navbar() {
 
     return (
         <div className="bg-[#303030] py-4 lg:px-16 px-4 h-24 flex items-center fixed top-0 left-0 right-0 z-50">
-            <div className="flex-grow flex justify-center lg:justify-start">
+            <div className='w-full flex justify-between items-center'>
+            <div className="flex flex-grow lg:flex-grow-0 justify-center lg:justify-start">
                 <Image src='/logo-trans.png' alt="logo" width={200} height={100} />
             </div>
             
@@ -44,6 +47,21 @@ export default function Navbar() {
                     </Link>
                 </ul>
             </div>
+            <div className='hidden lg:flex gap-6'>
+                    <Link href="https://api.whatsapp.com/send?phone=972543113297" target="_blank" rel="noreferrer">
+                     <FaWhatsapp className="iconFacebook" />
+        
+                     </Link>
+                      <Link href="https://www.instagram.com/shhadyse/" target="_blank" rel="noreferrer">
+                      <FaInstagram className="iconFacebook" />
+                      </Link>
+                     <Link href="https://www.facebook.com/shhady.serhan/" target="_blank" rel="noreferrer">
+                      <FaFacebook className="iconFacebook" />
+                     </Link>
+                     {isSignedIn && <SignOutButton className="text-white"/>}
+
+                     </div>
+                     </div>
             <div className="lg:hidden absolute right-4" onClick={toggleMenu}>
                 <Menu className='text-white'/>
             </div>
@@ -64,6 +82,20 @@ export default function Navbar() {
                     <Link href='/about' onClick={toggleMenu}>
                         <li className={isActive('/about')}>من نحن</li>
                     </Link>
+                    {isSignedIn && <SignOutButton className="text-white"/>}
+                    <div className='flex gap-6'>
+                    <Link href="https://api.whatsapp.com/send?phone=972543113297" target="_blank" rel="noreferrer">
+                     <FaWhatsapp className="iconFacebook" />
+        
+                     </Link>
+                      <Link href="https://www.instagram.com/shhadyse/" target="_blank" rel="noreferrer">
+                      <FaInstagram className="iconFacebook" />
+                      </Link>
+                     <Link href="https://www.facebook.com/shhady.serhan/" target="_blank" rel="noreferrer">
+                      <FaFacebook className="iconFacebook" />
+                     </Link>
+                     </div>
+                    
                 </ul>
             </div>
         </div>
