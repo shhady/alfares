@@ -21,23 +21,13 @@ export default function AboutHome() {
       </div>
         <div className='flex justify-center items-center lg:p-8'>
         <iframe 
-src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F800700985599718%2F&show_text=false&width=267&t=0" 
-width="350"
- height="476"
- style={{border:'none',overflow:'hidden'}}
-  scrolling="no" 
-  frameborder="0" 
-  allowfullscreen="true" 
-  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 
-  allowFullScreen="true" 
-// width="full" 
-//           height="476" 
-//           scrolling="no" 
-//           frameBorder="0" 
-//           allowFullScreen="allowfullscreen" 
-//           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 
-        //   style={{ border: 'none', overflow: 'hidden' }}
-          
+            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F800700985599718%2F&show_text=false&width=267&t=0" 
+            width="350"
+            height="600"
+            style={{border:'none',overflow:'hidden'}}
+            frameBorder="0" 
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 
+            allowFullScreen={true} 
         ></iframe>
       </div>
       </div>
