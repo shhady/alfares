@@ -1,36 +1,7 @@
-'use client'
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
 
-export default  function BlogList() {
-    const [data, setData] = useState([])
-    
-    useEffect(() => {
-        const fetchBlogs = async () => {
-          try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PROD_URL ? process.env.NEXT_PUBLIC_BACKEND_PROD_URL : process.env.NEXT_PUBLIC_BACKEND_DEV_URL }/api/blogs/get-blogs`, {
-              method: 'GET',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-            });
-    
-            if (!response.ok) {
-              throw new Error('Failed to fetch blogs');
-            }
-    
-            const data = await response.json();
-            setData(data); // Set the blogs in state
-          } catch (err) {
-            // setError(err.message); // Handle any errors
-            console.error(err);
-          }
-        };
-    
-        fetchBlogs();
-      }, []);
-   
-    
+import Link from 'next/link';
+
+export default  function BlogList({data}) {
   
     return (
       <div className='p-8 flex flex-col items-center min-h-dvh'>

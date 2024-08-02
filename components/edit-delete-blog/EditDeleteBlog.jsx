@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { FilePenLine, Trash2 } from 'lucide-react';
 import Modal from '../modal/Modal';
 import { useRouter } from 'next/navigation'
+import Tiptap from '../blogForm/Tiptap';
 
 export default function EditDeleteBlog({ blog, onBlogUpdate }) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -93,12 +94,8 @@ export default function EditDeleteBlog({ blog, onBlogUpdate }) {
           <label>
             المحتوى:
           </label>
-          <textarea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            className='border p-2 rounded flex-1'
-            style={{ minHeight: '400px' }}
-          />
+          <Tiptap content={content} setContent={setContent} />
+         
         </div>
       </Modal>
     </div>

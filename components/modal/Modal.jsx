@@ -29,7 +29,7 @@ const Modal = ({ show, onClose, onConfirm, confirmText, cancelText, children }) 
       className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50 p-4"
       onClick={handleClose}
     >
-      <div className={`bg-white p-8 rounded shadow-md max-h-screen  w-full mx-auto lg:w-1/2 ${confirmText === "مسح" ? 'h-fit' : 'h-3/4'}`}>
+      <div className={`bg-white p-8 rounded shadow-md max-h-screen mt-24  w-full mx-auto lg:w-1/2 ${confirmText === "مسح" ? 'h-fit' : ''}`}>
         {children}
         <div className="flex justify-end gap-4 mt-4">
           <button onClick={onClose} className="px-4 py-2 bg-gray-400 rounded">
