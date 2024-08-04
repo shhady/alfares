@@ -1,9 +1,11 @@
+// components/edit-delete-blog/EditDeleteBlog.js
 'use client';
 import React, { useState } from 'react';
 import { FilePenLine, Trash2 } from 'lucide-react';
 import Modal from '../modal/Modal';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 import Tiptap from '../blogForm/Tiptap';
+import { useUser } from '@clerk/nextjs';
 
 export default function EditDeleteBlog({ blog, onBlogUpdate }) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -11,9 +13,15 @@ export default function EditDeleteBlog({ blog, onBlogUpdate }) {
   const [title, setTitle] = useState(blog.title);
   const [author, setAuthor] = useState(blog.author);
   const [content, setContent] = useState(blog.content);
-  const router = useRouter()
+  const router = useRouter();
+  const user = useUser();
 
   const handleUpdate = async () => {
+    const updatedBlog = { ...blog, title, author, content };
+
+    // Optimistically update the UI
+    onBlogUpdate(updatedBlog);
+
     const response = await fetch(`/api/blogs/update-blog/${blog._id}`, {
       method: 'PUT',
       headers: {
@@ -24,9 +32,10 @@ export default function EditDeleteBlog({ blog, onBlogUpdate }) {
 
     if (response.ok) {
       setShowUpdateModal(false);
-      onBlogUpdate();
+      console.log('Updated')
     } else {
       alert('Failed to update the blog');
+      // Optionally, revert the optimistic update if needed
     }
   };
 
@@ -37,7 +46,7 @@ export default function EditDeleteBlog({ blog, onBlogUpdate }) {
 
     if (response.ok) {
       setShowDeleteModal(false);
-      router.push('/blog', { scroll: false })
+      router.push('/blog', { scroll: false });
       // Redirect to another page or update the UI
     } else {
       alert('Failed to delete the blog');
@@ -46,13 +55,16 @@ export default function EditDeleteBlog({ blog, onBlogUpdate }) {
 
   return (
     <div className='flex gap-4'>
-      <button onClick={() => setShowUpdateModal(true)}>
-        <FilePenLine />
-      </button>
-      <button onClick={() => setShowDeleteModal(true)}>
-        <Trash2 />
-      </button>
-
+      {user.user?.publicMetadata.role && (
+        <>
+          <button onClick={() => setShowUpdateModal(true)}>
+            <FilePenLine />
+          </button>
+          <button onClick={() => setShowDeleteModal(true)}>
+            <Trash2 />
+          </button>
+        </>
+      )}
       <Modal
         show={showDeleteModal}
         onClose={() => setShowDeleteModal(false)}
@@ -95,7 +107,6 @@ export default function EditDeleteBlog({ blog, onBlogUpdate }) {
             المحتوى:
           </label>
           <Tiptap content={content} setContent={setContent} />
-         
         </div>
       </Modal>
     </div>

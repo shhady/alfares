@@ -1,29 +1,39 @@
 import {
     clerkMiddleware,
-    createRouteMatcher
+    createRouteMatcher,
+    clerkClient
   } from '@clerk/nextjs/server';
+  import { NextResponse } from 'next/server';
 
   const isProtectedRoute = createRouteMatcher([
     '/admin(.*)',
   ]);
   
-  export default clerkMiddleware((auth, req) => {
-    if (isProtectedRoute(req)) auth().protect();
-  });
-//   export default clerkMiddleware(async (auth, req) => {
-//         // const {userId} = auth()
-//         // console.log(userId);
-//         // const data = await clerkClient().users.getUserList();
-//         // const userRole = data.data.find(user=> user.id === userId)?.publicMetadata?.role;
-
-//         try{
-
-//             if (isProtectedRoute(req)) auth().protect();
-//         } catch(e) {
-//         console.log(e);
-//         }
-//   });
+  export default clerkMiddleware(async (auth, req) => {
+    console.log(auth());
+    const {userId} = auth();
+    if (isProtectedRoute(req)) {
+        if (!userId) {
+          // If not signed in, redirect to sign-in page
+          return NextResponse.redirect(new URL('/sign-in', req.url));
+        }
+    
+        const data = await clerkClient().users.getUserList();
+        console.log(data);
+        const userRole = data?.data.find(user => user.id === userId)?.publicMetadata?.role;
+        
+        if (userRole !== 'admin') {
+          // If not an admin, redirect to home page
+          return NextResponse.redirect(new URL('/', req.url));
+        }
+    
+        // If admin, allow access to the admin page
+        return NextResponse.next();
+      }
   
+      // For non-protected routes, allow access
+      return NextResponse.next()
+    })
   export const config = {
     matcher: [
       // Skip Next.js internals and all static files, unless found in search params

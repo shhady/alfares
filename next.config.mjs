@@ -23,11 +23,25 @@ const nextConfig = {
           pathname: '**', // Allow all paths
         },
         {
-            protocol: 'https',
-            hostname: 'images.unsplash.com',
-            pathname: '**', // Allow all paths
-          },
+          protocol: 'https',
+          hostname: 'images.unsplash.com',
+          pathname: '**', // Allow all paths
+        },
       ],
+    },
+    
+    async headers() {
+      return [
+        {
+          source: '/(.*)',
+          headers: [
+            {
+              key: 'Permissions-Policy',
+              value: 'geolocation=(self), microphone=(self), camera=(self)', // Use only recognized features
+            },
+          ],
+        },
+      ];
     },
   };
   
