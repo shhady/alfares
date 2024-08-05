@@ -39,24 +39,22 @@ export default function Reels() {
   ];
 
   return (
-    <div className="reels-container py-8 max-w-screen-2xl m-auto overflow-x-auto">
-      <h2 className="text-center text-4xl mb-4 p-8">مقاطع فيديو</h2>
-      <div className='flex justify-start items-center gap-2'>
-        {videoUrls.map((url, index) => (
-          <iframe
-            key={index}
-            ref={el => iframes.current[index] = el}
-            src={url}
-            width="267"
-            height="476"
-            style={{ border: 'none', overflow: 'hidden' }}
-            scrolling="no"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            allowFullScreen={true}
-          ></iframe>
-        ))}
-      </div>
-    </div>
+    <div className='flex justify-start items-center gap-2 py-8 max-w-screen-2xl m-auto overflow-x-auto'>
+    {videoUrls.map((url, index) => (
+      <iframe
+        key={index}
+        ref={el => iframes.current[index] = el}
+        src={url}
+        width="267"
+        height="476"
+        style={{ border: 'none', overflow: 'hidden',minWidth:"267px" }}
+        scrolling="no"
+        frameBorder="0"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        allowFullScreen={true}
+        
+      ></iframe>
+    ))}
+  </div>
   );
 }
