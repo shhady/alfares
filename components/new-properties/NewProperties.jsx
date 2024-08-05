@@ -36,7 +36,7 @@ export default function NewProperties({ data }) {
         variants={variants}
       >
         <div className='lg:grid lg:grid-cols-4 md:grid md:grid-cols-2 grid grid-cols-1 max-w-screen-2xl gap-4'>
-          {data.slice(0, 5).map((property) => (
+          {data.slice(0, 4).map((property) => (
             <PropertyCard property={property} key={property._id} />
           ))}
         </div>
