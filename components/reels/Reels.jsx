@@ -39,8 +39,8 @@ export default function Reels() {
 
   return (
     <div className="reels-container py-8 max-w-screen-2xl m-auto">
-      <h2 className="text-center text-4xl mb-4 p-8">مقاطع فيديو قصيرة</h2>
-      <div className='lg:reels-wrapper flex justify-start items-center gap-2 overflow-x-scroll'>
+      <h2 className="text-center text-4xl mb-4 p-8">مقاطع فيديو</h2>
+      <div className='flex justify-start items-center gap-2 overflow-x-scroll'>
         {videoUrls.map((url, index) => (
           <iframe
             key={index}
@@ -56,15 +56,7 @@ export default function Reels() {
           ></iframe>
         ))}
       </div>
-      <style jsx>{`
-        .reels-wrapper {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
-        }
-        .reels-wrapper::-webkit-scrollbar {
-          display: none;  /* Chrome, Safari, Opera */
-        }
-      `}</style>
+     
     </div>
   );
 }
