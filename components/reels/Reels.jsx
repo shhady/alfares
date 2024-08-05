@@ -45,9 +45,9 @@ export default function Reels() {
         key={index}
         ref={el => iframes.current[index] = el}
         src={url}
-        width="200"
-        height="300"
-        style={{ border: 'none', overflow: 'hidden',minWidth:"210px", minHeight:"300px" }}
+        width="267"
+        height="320"
+        style={{ border: 'none', overflow: 'hidden',minWidth:"267px", minHeight:"476px" }}
         scrolling="no"
         frameBorder="0"
         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
