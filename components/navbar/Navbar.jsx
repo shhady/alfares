@@ -48,14 +48,14 @@ export default function Navbar() {
                 </ul>
             </div>
             <div className='hidden lg:flex gap-6'>
-                    <Link href="https://api.whatsapp.com/send?phone=972543113297" target="_blank" rel="noreferrer">
+                    <Link href="https://api.whatsapp.com/send?phone=972542464585" target="_blank" rel="noreferrer">
                      <FaWhatsapp className="iconFacebook" />
         
                      </Link>
-                      <Link href="https://www.instagram.com/shhadyse/" target="_blank" rel="noreferrer">
+                      <Link href="https://www.instagram.com/ady_alfares/" target="_blank" rel="noreferrer">
                       <FaInstagram className="iconFacebook" />
                       </Link>
-                     <Link href="https://www.facebook.com/shhady.serhan/" target="_blank" rel="noreferrer">
+                     <Link href="https://www.facebook.com/profile.php?id=100064084111341" target="_blank" rel="noreferrer">
                       <FaFacebook className="iconFacebook" />
                      </Link>
                      {isSignedIn && <SignOutButton className="text-white"/>}
@@ -84,14 +84,14 @@ export default function Navbar() {
                     </Link>
                     {isSignedIn && <SignOutButton className="text-white"/>}
                     <div className='flex gap-6'>
-                    <Link href="https://api.whatsapp.com/send?phone=972543113297" target="_blank" rel="noreferrer">
+                    <Link href="https://api.whatsapp.com/send?phone=972542464585" target="_blank" rel="noreferrer">
                      <FaWhatsapp className="iconFacebook" />
         
                      </Link>
-                      <Link href="https://www.instagram.com/shhadyse/" target="_blank" rel="noreferrer">
+                      <Link href="https://www.instagram.com/ady_alfares/" target="_blank" rel="noreferrer">
                       <FaInstagram className="iconFacebook" />
                       </Link>
-                     <Link href="https://www.facebook.com/shhady.serhan/" target="_blank" rel="noreferrer">
+                     <Link href="https://www.facebook.com/profile.php?id=100064084111341" target="_blank" rel="noreferrer">
                       <FaFacebook className="iconFacebook" />
                      </Link>
                      </div>

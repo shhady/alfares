@@ -47,7 +47,7 @@ export default function Reels() {
         src={url}
         width="267"
         height="476"
-        style={{ border: 'none', overflow: 'hidden',minWidth:"267px" }}
+        style={{ border: 'none', overflow: 'hidden',minWidth:"267px", minHeight:"476px" }}
         scrolling="no"
         frameBorder="0"
         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
