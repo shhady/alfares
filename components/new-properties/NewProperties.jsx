@@ -1,11 +1,12 @@
 'use client'
 // NewProperties.jsx
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropertyCard from '../propertyCard/PropertyCard';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-export default function NewProperties({ data }) {
+export default function NewProperties() {
+    const [data, setData] = useState([])
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -22,6 +23,15 @@ export default function NewProperties({ data }) {
     hidden: { opacity: 0, y: 150 },
     visible: { opacity: 1, y: 0, transition: { duration: 1.5 } },
   };
+
+  useEffect(()=>{
+    const fetchData = async ()=>{
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PROD_URL ? process.env.NEXT_PUBLIC_BACKEND_PROD_URL : process.env.NEXT_PUBLIC_BACKEND_DEV_URL }/api/properties/get-properties`)
+        const response = await res.json();
+        setData(response)
+    }
+    fetchData()
+  },[])
 
   return (
     <div ref={ref}          className='p-8 text-center flex flex-col gap-4 justify-center items-center bg-white text-black'
