@@ -33,14 +33,14 @@ const HeroFilter = ({ data }) => {
   };
 
   return (
-    <div className="bg-[#9e8636] shadow rounded-md p-4 mb-4 text-black w-full lg:w-1/2">
+    <div className="bg-[#303030] shadow rounded-md p-4 mb-4 text-black w-full lg:w-1/2">
       <div className="grid lg:grid-cols-3 gap-4">
         <div className="relative">
           <select
             name="propertiesType"
             value={filterOptions.propertiesType}
             onChange={handleFilterChange}
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="w-full p-2 border border-gray-300 rounded-md bg-[#303030] text-white"
             data-fdprocessedid="propertiesType" // Ensuring this attribute is always present
           >
             <option value="">نوع العقار</option>
@@ -56,7 +56,7 @@ const HeroFilter = ({ data }) => {
             name="location"
             value={filterOptions.location}
             onChange={handleFilterChange}
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="w-full p-2 border border-gray-300 rounded-md bg-[#303030] text-white"
             data-fdprocessedid="location" // Ensuring this attribute is always present
           >
             <option value="">الموقع</option>
@@ -72,7 +72,7 @@ const HeroFilter = ({ data }) => {
             name="developer"
             value={filterOptions.developer}
             onChange={handleFilterChange}
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="w-full p-2 border border-gray-300 rounded-md bg-[#303030] text-white"
             data-fdprocessedid="developer" // Ensuring this attribute is always present
           >
             <option value="">المطور</option>
@@ -86,7 +86,7 @@ const HeroFilter = ({ data }) => {
       </div>
       <button
         onClick={handleSearch}
-        className="w-full mt-4 inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#303030,45%,white,55%,#303030)] bg-[length:200%_100%] px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+        className="w-full mt-4 inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#9e8636,45%,white,55%,#9e8636)] bg-[length:200%_100%] px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
       >
         بحث
       </button>
