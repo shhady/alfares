@@ -40,7 +40,7 @@ export default function Reels() {
   return (
     <div className="reels-container py-8 max-w-screen-2xl m-auto">
       <h2 className="text-center text-4xl mb-4 p-8">مقاطع فيديو قصيرة</h2>
-      <div className='reels-wrapper flex justify-start items-center gap-2 overflow-x-scroll'>
+      <div className='lg:reels-wrapper flex justify-start items-center gap-2 overflow-x-scroll'>
         {videoUrls.map((url, index) => (
           <iframe
             key={index}
