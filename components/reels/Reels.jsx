@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useRef, useEffect } from 'react';
 
 export default function Reels() {
@@ -35,12 +35,13 @@ export default function Reels() {
     "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F443671848640160%2F&show_text=false&width=267&t=0",
     "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F845098887196159%2F&show_text=false&width=267&t=0",
     "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1434653767184935%2F&show_text=false&width=267&t=0",
-    "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F800700985599718%2F&show_text=false&width=267&t=0" ];
+    "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F800700985599718%2F&show_text=false&width=267&t=0"
+  ];
 
   return (
-    <div className="reels-container py-8 max-w-screen-2xl m-auto">
+    <div className="reels-container py-8 max-w-screen-2xl m-auto overflow-x-auto">
       <h2 className="text-center text-4xl mb-4 p-8">مقاطع فيديو</h2>
-      <div className='flex justify-start items-center gap-2 overflow-x-scroll'>
+      <div className='flex justify-start items-center gap-2'>
         {videoUrls.map((url, index) => (
           <iframe
             key={index}
@@ -56,7 +57,6 @@ export default function Reels() {
           ></iframe>
         ))}
       </div>
-     
     </div>
   );
 }
