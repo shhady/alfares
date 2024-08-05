@@ -46,7 +46,7 @@ export default function Reels() {
         ref={el => iframes.current[index] = el}
         src={url}
         width="267"
-        height="320"
+        height="476"
         style={{ border: 'none', overflow: 'hidden',minWidth:"267px", minHeight:"476px" }}
         scrolling="no"
         frameBorder="0"
