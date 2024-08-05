@@ -3,6 +3,7 @@ import ContactUs from '@/components/contactusform/ContactUs'
 import Hero from '@/components/hero/Hero'
 import { HeroParallaxDemo } from '@/components/hero/HeroParallaxDemo'
 import NewProperties from '@/components/new-properties/NewProperties'
+import Reels from '@/components/reels/Reels'
 import React from 'react'
 
 export default async function Home() {
@@ -15,6 +16,7 @@ export default async function Home() {
   return (
     <div>
       <Hero />
+      <Reels />
       <NewProperties data={data}/>
       <AboutHome />
       <ContactUs />
