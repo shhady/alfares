@@ -33,7 +33,7 @@ const HeroFilter = ({ data }) => {
   };
 
   return (
-    <div className="bg-white shadow rounded-md p-4 mb-4 text-black w-full lg:w-1/2">
+    <div className="bg-[#9e8636] shadow rounded-md p-4 mb-4 text-black w-full lg:w-1/2">
       <div className="grid lg:grid-cols-3 gap-4">
         <div className="relative">
           <select
