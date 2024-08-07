@@ -1,9 +1,15 @@
+'use client'
 import React from 'react';
 import SocialMedia from './SocialMedia';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { Mail } from 'lucide-react';
+import { FaPhone, FaWhatsapp } from "react-icons/fa"
 export default function Footer() {
+    function sendEmail() {
+        console.log('clicked');
+        window.location.assign("mailto:adyfares10@icloud.com");
+      }
   return (
     <div className='bg-[#303030] text-white p-8'>
       {/* Mobile View */}
@@ -33,6 +39,14 @@ export default function Footer() {
             <div>عنوان: شارع الشيخ زايد، دبي، الإمارات العربية المتحدة</div>
             <div>هاتف: 00972542464585</div>
             <div>ايميل: adyfares10@icloud.com</div>
+            <div className="flex justify-center xl:justify-start items-center gap-4">
+      <FaPhone className="iconPhone" onClick={() => window.open("tel:0542464585", "_blank")} />
+      <Mail className="iconEmail" onClick={sendEmail} />
+      <Link href="https://api.whatsapp.com/send?phone=972542464585" target="_blank" rel="noreferrer">
+            <FaWhatsapp className="iconFacebook" />
+        
+      </Link>
+      </div>
           </div>
           <div className=' flex flex-col gap-4'>
         <h2 className='font-bold my-4'>تابعنا</h2>

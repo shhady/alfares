@@ -25,7 +25,7 @@ export default function Navbar() {
         <div className="bg-[#303030] py-4 lg:px-16 px-4 h-24 flex items-center fixed top-0 left-0 right-0 z-50">
             <div className='w-full flex justify-between items-center'>
              <div className="flex flex-grow lg:flex-grow-0 justify-center lg:justify-start">
-             <Link href='/'>  <Image src='/Adi_Fares_Logo.png' alt="logo" width={200} height={100} priority/></Link>
+             <Link href='/' >  <Image src='/Adi_Fares_Logo.png' alt="logo" width={200} height={80}/></Link>
             </div>
             
             <div className="hidden lg:flex gap-4">
