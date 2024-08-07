@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function page() {
   return (
-    <section className='max-w-screen-xl m-auto p-4 md:p-8 min-h-[80dvh] bg-gray-100 shadow-md rounded-lg'>
+    <section className='max-w-screen-xl mx-auto p-4 md:p-8 min-h-[80dvh] bg-gray-100 shadow-md rounded-lg my-6'>
   <h2 className='text-center text-4xl lg:text-5xl my-8'>سياسة الخصوصية</h2>
   <p>
     نحن نحترم خصوصيتك ونلتزم بحماية المعلومات الشخصية التي تشاركها معنا. تُستخدم المعلومات التي نجمعها فقط لتحسين تجربتك على موقعنا وتقديم الخدمات المطلوبة.
