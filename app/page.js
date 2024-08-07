@@ -8,7 +8,7 @@ import React from 'react'
 
 export default async function Home() {
   const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PROD_URL ? process.env.NEXT_PUBLIC_BACKEND_PROD_URL : process.env.NEXT_PUBLIC_BACKEND_DEV_URL }/api/properties/get-properties`,
-  { next: { revalidate: 30 } });
+  { next: { revalidate: 300 } });
   if (!response.ok) {
     return <div className='mt-8 flex justify-center items-center'>No products found</div>;;
   }

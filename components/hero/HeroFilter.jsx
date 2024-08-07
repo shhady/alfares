@@ -41,7 +41,6 @@ const HeroFilter = ({ data }) => {
             value={filterOptions.propertiesType}
             onChange={handleFilterChange}
             className="w-full p-2 border border-gray-300 rounded-md bg-[#303030] text-white"
-            data-fdprocessedid="propertiesType" // Ensuring this attribute is always present
           >
             <option value="">نوع العقار</option>
             {uniqueOptions('propertiesType').map((option, index) => (
@@ -57,7 +56,6 @@ const HeroFilter = ({ data }) => {
             value={filterOptions.location}
             onChange={handleFilterChange}
             className="w-full p-2 border border-gray-300 rounded-md bg-[#303030] text-white"
-            data-fdprocessedid="location" // Ensuring this attribute is always present
           >
             <option value="">الموقع</option>
             {uniqueOptions('location').map((option, index) => (
@@ -73,7 +71,6 @@ const HeroFilter = ({ data }) => {
             value={filterOptions.developer}
             onChange={handleFilterChange}
             className="w-full p-2 border border-gray-300 rounded-md bg-[#303030] text-white"
-            data-fdprocessedid="developer" // Ensuring this attribute is always present
           >
             <option value="">المطور</option>
             {uniqueOptions('developer').map((option, index) => (

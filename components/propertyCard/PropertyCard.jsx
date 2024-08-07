@@ -7,10 +7,10 @@ export default function PropertyCard({property}) {
   return (
     <Link href={`/properties/${property._id}`}>
       <div className='relative roun'>
-      <div className='absolute left-1 top-2 bg-[#9e8636] text-white rounded-xl py-1 px-2 flex justify-center items-center gap-1 text-sm'>
+      <div className='absolute left-1 top-2 bg-[#dbb454] text-white rounded-xl py-1 px-2 flex justify-center items-center gap-1 text-sm'>
       {property.images.length}<Camera size={16}/> 
         </div>
-        <div className='absolute right-1 top-2 bg-[#9e8636] text-white rounded-xl py-1 px-2 text-sm'>
+        <div className='absolute right-1 top-2 bg-[#dbb454] text-white rounded-xl py-1 px-2 text-sm'>
         {property.generalInfo.readiness}
         </div>
        <Image

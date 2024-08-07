@@ -19,13 +19,13 @@ export default function Navbar() {
         setOpenMenu(!openMenu)
     }
 
-    const isActive = (route) => pathName === route ? 'bg-[#9e8636] text-white px-4 py-2 rounded-md' : 'px-4 py-2 text-white';
+    const isActive = (route) => pathName === route ? ' bg-[#dbb454] text-white px-4 py-2 rounded-md' : 'px-4 py-2 text-white';
 
     return (
         <div className="bg-[#303030] py-4 lg:px-16 px-4 h-24 flex items-center fixed top-0 left-0 right-0 z-50">
             <div className='w-full flex justify-between items-center'>
              <div className="flex flex-grow lg:flex-grow-0 justify-center lg:justify-start">
-             <Link href='/'>  <Image src='/logo-trans.png' alt="logo" width={200} height={100} priority/></Link>
+             <Link href='/'>  <Image src='/Adi_Fares_Logo.png' alt="logo" width={200} height={100} priority/></Link>
             </div>
             
             <div className="hidden lg:flex gap-4">

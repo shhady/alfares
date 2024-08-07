@@ -12,8 +12,7 @@ export default function SocialMedia() {
 
   return (
     <div>
-    <h1 className='text-[1rem] text-start mb-4 hidden md:block border-b-2 border-white py-2'>تواصل</h1>
-    <div className="flex justify-center items-center gap-4">
+    <div className="flex justify-center xl:justify-start items-center gap-4">
       <FaPhone className="iconPhone" onClick={() => window.open("tel:0542464585", "_blank")} />
       <Mail className="iconEmail" onClick={sendEmail} />
       <Link href="https://api.whatsapp.com/send?phone=972542464585" target="_blank" rel="noreferrer">

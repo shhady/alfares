@@ -3,9 +3,8 @@ import { useState } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Tiptap from './Tiptap';
-import parse from 'html-react-parser';
 
-const BlogForm = () => {
+const BlogForm = ({setShowForm}) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [author, setAuthor] = useState('');
@@ -15,6 +14,7 @@ const BlogForm = () => {
   const editor = useEditor({
     extensions: [StarterKit],
     content: '<p>Hello World! 🌎️</p>',
+    immediatelyRender: false
   })
 
   const handleSubmit = async (e) => {
@@ -43,6 +43,7 @@ const BlogForm = () => {
         setTitle('');
         setContent('');
         setAuthor('');
+        setShowForm('All-blogs')
       } else {
         setError(result.error);
       }

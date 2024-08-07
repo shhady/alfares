@@ -1,5 +1,4 @@
-// components/edit-delete-blog/EditDeleteBlog.js
-'use client';
+'use client'
 import React, { useState } from 'react';
 import { FilePenLine, Trash2 } from 'lucide-react';
 import Modal from '../modal/Modal';
@@ -7,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import Tiptap from '../blogForm/Tiptap';
 import { useUser } from '@clerk/nextjs';
 
-export default function EditDeleteBlog({ blog, onBlogUpdate }) {
+export default function EditDeleteBlog({ blog, onBlogUpdate, onBlogDelete }) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [title, setTitle] = useState(blog.title);
@@ -32,7 +31,7 @@ export default function EditDeleteBlog({ blog, onBlogUpdate }) {
 
     if (response.ok) {
       setShowUpdateModal(false);
-      console.log('Updated')
+      console.log('Updated');
     } else {
       alert('Failed to update the blog');
       // Optionally, revert the optimistic update if needed
@@ -46,8 +45,8 @@ export default function EditDeleteBlog({ blog, onBlogUpdate }) {
 
     if (response.ok) {
       setShowDeleteModal(false);
-      router.push('/blog', { scroll: false });
-      // Redirect to another page or update the UI
+      // Call the onBlogDelete function to remove the blog from the state
+      onBlogDelete(blog._id);
     } else {
       alert('Failed to delete the blog');
     }
