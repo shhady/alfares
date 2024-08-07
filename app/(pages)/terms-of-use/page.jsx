@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function page() {
   return (
-    <section className='max-w-screen-xl m-auto p-4 md:p-8 min-h-[80dvh]'>
+    <section className='max-w-screen-xl m-auto p-4 md:p-8 min-h-[80dvh] bg-gray-100 shadow-md rounded-lg'>
   <h2 className='text-center text-4xl lg:text-5xl my-8'>الشروط والأحكام</h2>
   <p>
     أهلاً وسهلاً بكم في موقعنا. باستخدام هذا الموقع، فإنك توافق على الالتزام بالشروط والأحكام التالية. يرجى قراءتها بعناية.
