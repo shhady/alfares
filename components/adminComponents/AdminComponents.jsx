@@ -57,15 +57,16 @@ export default function AdminComponents() {
         } lg:w-64`}
         onClick={handleSidebarToggle}
       >
-        <div className="flex items-center justify-between p-2 sticky top-24">
+       
+        
+        {/* Sticky icons */}
+        <nav className="flex flex-col space-y-2 sticky top-24">
+        <div className="flex items-center justify-between p-2 ">
           <h2 className={`text-xl font-bold ${isSidebarOpen ? 'block' : 'hidden'} lg:block`}>My App</h2>
           <button className="lg:hidden focus:outline-none" onClick={() => setIsSidebarOpen(true)}>
             <Menu className="w-6 h-6" />
           </button>
         </div>
-        
-        {/* Sticky icons */}
-        <nav className="flex flex-col space-y-2 sticky top-32">
           <div className="flex gap-2 items-center p-2 text-base font-semibold hover:bg-gray-700 rounded-md" onClick={(e) => handleClickIcon(e, 'add-property-form')}>
             <PlusCircle className="w-6 h-6" /> <span className={`${isSidebarOpen ? 'block' : 'hidden'} lg:block ml-2`}>اضف مشروع</span>
           </div>
