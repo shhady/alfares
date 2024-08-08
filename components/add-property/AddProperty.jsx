@@ -102,33 +102,33 @@ export default function AddProperty() {
               <label htmlFor="generalInfo.location" >الموقع</label>
               <input id="generalInfo.location" type="text" name="generalInfo.location" required value={formData.generalInfo.location} onChange={handleChange} className="form-control bg-gray-200 border-b-2 border-black mt-2 block w-full rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2" />
             </div>
-            <div className=" gap-4 w-full max-w-screen-lg">
+            {/* <div className=" gap-4 w-full max-w-screen-lg">
             <div className="mb-3 text-right">
               <label htmlFor="location.description" >وصف الموقع</label>
               <input id="generalInfo.description" type="text" name="location.description" required value={formData.location.description} onChange={handleChange} className="form-control bg-gray-200 border-b-2 border-black mt-2 block w-full rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2" />
             </div>
            
-          </div>
-            <div className="mb-3 text-right grid grid-cols-2 gap-4">
+          </div> */}
+            {/* <div className="mb-3 text-right grid grid-cols-2 gap-4"> */}
             <div className="mb-3 text-right">
-  <label htmlFor="generalInfo.minPrice" >أقل سعر</label>
+  <label htmlFor="generalInfo.minPrice" >ابتداءً من</label>
   <input id="generalInfo.minPrice"  type="text" name="generalInfo.minPrice" required value={formData.generalInfo.minPrice} onChange={handleChange} className="form-control bg-gray-200 border-b-2 border-black mt-2 block w-full rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2" />
 </div>
-<div className="mb-3 text-right">
+{/* <div className="mb-3 text-right">
   <label htmlFor="generalInfo.maxPrice" >أعلى سعر</label>
   <input id="generalInfo.maxPrice" type="text" name="generalInfo.maxPrice" required value={formData.generalInfo.maxPrice} onChange={handleChange} className="form-control bg-gray-200 border-b-2 border-black mt-2 block w-full rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2" />
-</div>
-            </div>
+</div> */}
+            {/* </div> */}
             <div className="mb-3 text-right">
               <label htmlFor="generalInfo.propertiesType" >نوع العقار</label>
               <input id="generalInfo.propertiesType" type="text" name="generalInfo.propertiesType" required value={formData.generalInfo.propertiesType} onChange={handleChange} className="form-control bg-gray-200 border-b-2 border-black mt-2 block w-full rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2" />
             </div>
 
-            <div className="mb-3 text-right">
+            {/* <div className="mb-3 text-right">
               <label htmlFor="generalInfo.readiness" >الجهوزية</label>
               <input  id="generalInfo.readiness" type="text" name="generalInfo.readiness" required value={formData.generalInfo.readiness} onChange={handleChange} className="form-control bg-gray-200 border-b-2 border-black mt-2 block w-full rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2" />
             </div>
-         
+          */}
             <div className="mb-3 text-right">
               <label htmlFor="generalInfo.deliveryDate" >التسليم</label>
               <input id="generalInfo.deliveryDate" type="text" name="generalInfo.deliveryDate" required value={formData.generalInfo.deliveryDate} onChange={handleChange} className="form-control bg-gray-200 border-b-2 border-black mt-2 block w-full rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2" />
@@ -142,20 +142,20 @@ export default function AddProperty() {
           </div>
 
           {/* Architectural Design */}
-          <div className="grid lg:grid-cols-2 gap-4 w-full max-w-screen-lg">
+          {/* <div className="grid lg:grid-cols-2 gap-4 w-full max-w-screen-lg">
             <div className="mb-3 text-right">
               <label htmlFor="architecturalDesign.totalArea" >المساحة الكلية</label>
               <input id="architecturalDesign.totalArea" type="text" name="architecturalDesign.totalArea" required value={formData.architecturalDesign.totalArea} onChange={handleChange} className="form-control bg-gray-200 border-b-2 border-black mt-2 block w-full rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2" />
-            </div>
+            </div> */}
            
-            <div className="mb-3 text-right">
+            {/* <div className="mb-3 text-right">
               <label htmlFor="architecturalDesign.totalBuiltArea" >مساحة البناء</label>
               <input id="architecturalDesign.totalBuiltArea" type="text" name="architecturalDesign.totalBuiltArea" required value={formData.architecturalDesign.totalBuiltArea} onChange={handleChange} className="form-control bg-gray-200 border-b-2 border-black mt-2 block w-full rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2" />
             </div>
-          </div>
+          </div> */}
 
           {/* Prices */}
-          <div className="grid lg:grid-cols-2 gap-4 w-full max-w-screen-lg">
+          {/* <div className="grid lg:grid-cols-2 gap-4 w-full max-w-screen-lg">
             <div className="mb-3 text-right">
               <label htmlFor="prices.studio" >سعر استوديو</label>
               <input id="prices.studio" type="text" name="prices.studio" required value={formData.prices.studio} onChange={handleChange} className="form-control bg-gray-200 border-b-2 border-black mt-2 block w-full rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2" />
@@ -172,7 +172,7 @@ export default function AddProperty() {
               <label htmlFor="prices.threeBedroom" >سعر ثلاث غرف وصالة</label>
               <input  id="prices.threeBedroom" type="text" name="prices.threeBedroom" required value={formData.prices.threeBedroom} onChange={handleChange} className="form-control bg-gray-200 border-b-2 border-black mt-2 block w-full rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2" />
             </div>
-          </div>
+          </div> */}
 
           {/* Payment Plan */}
           <div className="w-full max-w-screen-lg mb-3 text-right">
@@ -183,13 +183,17 @@ export default function AddProperty() {
           {/* Strengths */}
           <div className="w-full max-w-screen-lg mb-3 text-right">
             <label htmlFor="strengths" >نقاط القوة</label>
-            <input type="text" name="strengths" required value={formData.strengths} onChange={handleChange} className="form-control bg-gray-200 border-b-2 border-black mt-2 block w-full rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2" />
+            <input placeholder='مثلاً, موقع استراتيجي متميز على شارع الشيخ زايد في الخليج التجاري، دبي/تصميم معماري فريد وأنيق مع 60 طابقاً وإطلالات بانورامية خلابة.' type="text" name="strengths" required value={formData.strengths} onChange={handleChange} className="form-control bg-gray-200 border-b-2 border-black mt-2 block w-full rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2" />
           </div>
 
           {/* Features */}
           <div className="w-full max-w-screen-lg mb-3 text-right">
             <label htmlFor="features" >الميزات</label>
-            <textarea id="features" name="features" required value={formData.features} onChange={handleChange} className="form-control bg-gray-200 border-b-2 border-black mt-2 block w-full rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2"></textarea>
+            <textarea placeholder='إنذار حريق , تكييف ,ساونا , جيم , حدائق , شرفة'
+
+
+
+ id="features" name="features" required value={formData.features} onChange={handleChange} className="form-control bg-gray-200 border-b-2 border-black mt-2 block w-full rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2"></textarea>
           </div>
           <PhotosUpload setImagesArray={handleImagesArray} />
           <div className="w-full max-w-screen-lg text-left">
@@ -200,3 +204,4 @@ export default function AddProperty() {
     </div>
   );
 }
+

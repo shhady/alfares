@@ -13,10 +13,10 @@ export default function Footer() {
   return (
     <div className='bg-[#303030] text-white p-8'>
       {/* Mobile View */}
-      <div className='md:hidden flex flex-col items-center gap-8 text-center'>
-        <Image src='/Adi_Fares_Logo-footer.png' alt='logo' width={150} height={150} />
+      <div className='md:hidden flex flex-col items-center gap-5 text-center'>
+        <Image src='/Adi_Fares_Logo-footer.png' alt='logo' width={150} height={150} className='w-auto h-auto'/>
         <div className='flex flex-col gap-4 w-full'>
-          <h2 className='font-bold my-4'>روابط سريعة</h2>
+          <h2 className='font-bold my-2'>روابط سريعة</h2>
         <ul className='flex justify-evenly items-start gap-8'>
        
             <div className='flex flex-col gap-4'>
@@ -59,7 +59,7 @@ export default function Footer() {
       {/* Desktop View */}
       <div className='hidden md:grid md:grid-cols-2 xl:grid-cols-4'>
         <div className='flex flex-col justify-center items-center'>
-          <Image src='/Adi_Fares_Logo-footer.png' alt='logo' width={150} height={100} />
+          <Image src='/Adi_Fares_Logo-footer.png' alt='logo' width={150} height={100} className='w-auto h-auto'/>
         
           <div dir='ltr' className='text-center'>© 2024 Alfares.</div>
 

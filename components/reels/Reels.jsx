@@ -39,7 +39,7 @@ export default function Reels() {
   ];
 
   return (
-    <div className='flex justify-start items-center gap-2 py-8 max-w-screen-2xl m-auto overflow-x-auto pr-2'>
+    <div className='flex justify-start items-center gap-2 py-8 max-w-screen-2xl m-auto overflow-x-auto px-2'>
     {videoUrls.map((url, index) => (
       <iframe
         key={index}

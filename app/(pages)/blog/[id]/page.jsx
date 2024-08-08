@@ -18,3 +18,5 @@ export default async function page({ params }) {
     <ClientSideComponent initialData={data} />
   );
 }
+
+
