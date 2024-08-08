@@ -48,8 +48,8 @@ export function SwiperComponent({images}) {
         
       >
          {images.map((image)=>{
-            return <SwiperSlide key={image}>
-                <Image width={1000} height={1000} src={image.secure_url} alt='product image' className='w-full md:w-1/2 object-cover'/>
+            return <SwiperSlide key={image.public_id}>
+                <Image width={1000} height={1000} src={image.secure_url} alt='product image' className='w-full md:w-1/2 object-cover max-h-[60dvh]'/>
              </SwiperSlide>
         })}
         
@@ -63,7 +63,7 @@ export function SwiperComponent({images}) {
         modules={[FreeMode, Navigation, Thumbs]}
       >
         {images.map((image)=>{
-            return <SwiperSlide key={image}>
+            return <SwiperSlide key={image.public_id}>
                 <Image width={1000} height={1000} src={image.secure_url} alt='product image' style={{height:'90px', width:'100px', objectFit:'cover', border:"1px solid #b9b8b8"}}/>
              </SwiperSlide>
         })}

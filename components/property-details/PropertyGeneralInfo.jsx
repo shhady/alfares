@@ -6,21 +6,22 @@ export default function PropertyGeneralInfo({data}) {
         <div className='text-2xl my-2'>
         معلومات عامه:
         </div>
-        <div className='bg-[#e7e5e5] rounded-lg p-1'>
+       {data.location &&  <div className='bg-[#e7e5e5] rounded-lg p-1'>
         الموقع: {data.location}
-        </div>
-        <div>
-        نطاق السعر: {data.minPrice} - {data.maxPrice} درهم
-        </div>
-        <div className='bg-[#e7e5e5] rounded-lg p-1'>
+        </div>}
+       {data.minPrice && <div>
+        ابتداءً من: {data.minPrice}  درهم اماراتي
+        </div>}
+       {data.propertiesType &&  <div className='bg-[#e7e5e5] rounded-lg p-1'>
         نوع العقار: {data.propertiesType}
-        </div>
-        <div>
+        </div>}
+       {data.developer &&  <div>
         المطور العقاري: {data.developer}
-        </div>
-        <div className='bg-[#e7e5e5] rounded-lg p-1'>
+        </div>}
+
+      {data.deliveryDate && <div className='bg-[#e7e5e5] rounded-lg p-1'>
         التسليم: {data.deliveryDate}
-        </div>
+        </div>} 
         
     </div>
   )

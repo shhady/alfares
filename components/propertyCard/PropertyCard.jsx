@@ -11,7 +11,7 @@ export default function PropertyCard({property}) {
       {property.images.length}<Camera size={16}/> 
         </div>
         <div className='absolute right-1 top-2 bg-[#dbb454] text-white rounded-xl py-1 px-2 text-sm'>
-        {property.generalInfo.readiness}
+        {property.generalInfo.propertiesType}
         </div>
        <Image
                             width={1000} height={1000}
@@ -23,10 +23,8 @@ export default function PropertyCard({property}) {
                         <div className='font-semibold'>الاسم: {property.generalInfo.name}</div>
                        <div className='font-semibold'>الموقع: {property.generalInfo.location}</div>
                        <div className='font-semibold'>المطور: {property.generalInfo.developer}</div>
-                       <div className='font-semibold'>النوع: {property.generalInfo.propertiesType}</div>
-                       <div className='font-semibold'>السعر الادنى: {property.generalInfo.minPrice}</div>
+                       <div className='font-semibold'>ابتداءً من: {property.generalInfo.minPrice}</div>
                         </div>
-     
 
     </div>
     </Link>

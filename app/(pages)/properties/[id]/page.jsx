@@ -23,8 +23,8 @@ export default async function page({params}) {
                 {data.generalInfo.name}
             </div>
             <div className='flex flex-col text-center'>
-            <div className='font-bold bg-yellow-600 rounded-lg'> {data.generalInfo.readiness}</div> 
-            <div  className='font-bold'> أدنى سعر: {data.generalInfo.minPrice}</div> 
+            {/* <div className='font-bold bg-yellow-600 rounded-lg'> {data.generalInfo.readiness}</div>  */}
+            <div  className='font-bold'> ابتداءً من: {data.generalInfo.minPrice}</div> 
             </div>
         </div>
         <SwiperComponent images={data.images} />
