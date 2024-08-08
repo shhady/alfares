@@ -15,7 +15,7 @@ const generateSignature = (publicId, apiSecret, timestamp) => {
 };
 
 export default function PhotosUpload({ setImagesArray, imagesArray }) {
-    const [images, setImages] = useState([]);
+    const [images, setImages] = useState(imagesArray || []);
     const [error, setError] = useState(null);
     const [successMessage, setSuccessMessage] = useState(null);
 
@@ -23,12 +23,28 @@ export default function PhotosUpload({ setImagesArray, imagesArray }) {
         setError(null);
         setSuccessMessage(null);
     };
-    useEffect(()=>{
-        if(imagesArray?.length > 0) {
-            setImages(imagesArray)
+
+    useEffect(() => {
+        // This useEffect will run only when the component mounts
+        // and whenever the imagesArray prop changes
+        if (imagesArray?.length > 0 && imagesArray !== images) {
+            setImages(imagesArray);
         }
-    },[imagesArray])
-    
+    }, [imagesArray]);
+
+    const handleUploadSuccess = (results) => {
+        const newImage = {
+            public_id: results.info.public_id,
+            secure_url: results.info.secure_url,
+        };
+        
+        // Update the images state and setImagesArray
+        setImages((prevImages) => {
+            const updatedImages = [...prevImages, newImage];
+            setImagesArray(updatedImages);
+            return updatedImages;
+        });
+    };
     const handleDeleteImage = async (publicId) => {
         const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
         const apiKey = process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY;
@@ -71,18 +87,7 @@ export default function PhotosUpload({ setImagesArray, imagesArray }) {
         }
     };
 
-    const handleUploadSuccess = (results) => {
-        const newImage = {
-            public_id: results.info.public_id,
-            secure_url: results.info.secure_url
-        };
-        setImages((prevImages) => {
-            const updatedImages = [...prevImages, newImage];
-            setImagesArray(updatedImages);
-            return updatedImages;
-        });
-    };
-
+   
     return (
         <>
             <CldUploadButton
