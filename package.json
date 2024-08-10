@@ -11,6 +11,7 @@
   "dependencies": {
     "@clerk/clerk-sdk-node": "^5.0.21",
     "@clerk/nextjs": "^5.2.9",
+    "@radix-ui/react-slot": "^1.1.0",
     "@tailwindcss/typography": "^0.5.13",
     "@tiptap/extension-bold": "^2.5.8",
     "@tiptap/extension-heading": "^2.5.8",
@@ -21,6 +22,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "crypto-js": "^4.2.0",
+    "embla-carousel-react": "^8.1.8",
     "framer-motion": "^11.3.21",
     "html-react-parser": "^5.1.12",
     "lucide-react": "^0.416.0",

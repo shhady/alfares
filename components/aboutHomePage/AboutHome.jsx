@@ -8,7 +8,7 @@ export default function AboutHome() {
       <div className='pb-8  xl:flex gap-4 xl:gap-8 justify-center items-center  max-w-screen-2xl m-auto'>
         <div className='flex flex-col gap-3 justify-start items-start p-8'>
           <h1 className='text-3xl font-bold text-center mb-8 md:text-start md:w-fit w-full line-under-white'>عدي فارس <br/> خبير الاستثمار العقاري في دبي</h1>
-          <h2 className='text-3xl font-medium text-[#9e8636]'>خبرة موثوقة، نتائج متميزة</h2>
+          <h2 className='text-3xl font-medium text-[#dbb454]'>خبرة موثوقة، نتائج متميزة</h2>
 
           <TextGenerateEffect duration={2} filter={false} words={'أنا عدي فارس، خبير في مجال الاستثمار العقاري بدبي، نشأت في أسرة ذات جذور عميقة في التطوير العقاري. منذ أن كنت صغيرًا، تعلمت من والدي الذي كان مطورًا عقاريًا بارزًا قام ببناء عقارات في عكا واستثمر في عقارات دبي. اليوم، أستفيد من هذه الخبرة الغنية لمساعدة الأفراد على اتخاذ قرارات استثمارية مدروسة وناجحة في سوق العقارات بدبي.'} />
  

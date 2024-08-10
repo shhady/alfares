@@ -25,7 +25,7 @@ export default function Navbar() {
         <div className="bg-[#303030] py-4 lg:px-16 px-4 h-24 flex items-center fixed top-0 left-0 right-0 z-50">
             <div className='w-full flex justify-between items-center max-h-full'>
              <div className="flex flex-grow lg:flex-grow-0 justify-center lg:justify-start">
-             <Link href='/' className=' flex justify-start items-center'>  <Image src='/Adi_Fares_Logo.png' alt="logo" width={200} height={100} className='w-auto h-1/2'/></Link>
+             <Link href='/' className=' flex justify-center lg:justify-start items-center'>  <Image src='/Adi_Fares_Logo.png' alt="logo" width={200} height={100} className='w-auto h-1/2'/></Link>
             </div>
             
             <div className="hidden lg:flex gap-4">
@@ -33,9 +33,9 @@ export default function Navbar() {
                     <Link href='/'>
                         <li className={isActive('/')}>الرئيسية</li>
                     </Link>
-                    <Link href='/properties'>
+                    {/* <Link href='/properties'>
                         <li className={isActive('/properties')}>عقارات دبي</li>
-                    </Link>
+                    </Link> */}
                     <Link href='/contact'>
                         <li className={isActive('/contact')}>تواصل معي</li>
                     </Link>
@@ -78,9 +78,9 @@ export default function Navbar() {
           <Link href='/' onClick={toggleMenu}>
             <li className={isActive('/')}>الرئيسية</li>
           </Link>
-          <Link href='/properties' onClick={toggleMenu}>
+          {/* <Link href='/properties' onClick={toggleMenu}>
             <li className={isActive('/properties')}>عقارات دبي</li>
-          </Link>
+          </Link> */}
           <Link href='/contact' onClick={toggleMenu}>
             <li className={isActive('/contact')}>تواصل معي</li>
           </Link>
