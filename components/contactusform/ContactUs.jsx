@@ -74,7 +74,7 @@ export default function ContactUs() {
           email: '',
           how: ''
         })
-      },5000)
+      },4000)
     }
    },[formStatus])
   return (
