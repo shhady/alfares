@@ -5,7 +5,7 @@ const WhoWeAre = () => {
     <div className="container mx-auto py-16 px-4">
       <h1 className="text-4xl font-bold text-center mb-4 text-gray-800">من نحن</h1>
       <p className="text-center text-lg text-gray-600 mb-8">
-        نحن في شركة [اسم الشركة] نؤمن بأن العقارات ليست مجرد مباني، بل هي فرص لإحداث تأثير إيجابي في حياة الناس.
+        نحن نؤمن بأن العقارات ليست مجرد مباني، بل هي فرص لإحداث تأثير إيجابي في حياة الناس.
       </p>
       <div className="flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="rounded-lg shadow-lg p-6 mb-6 md:mb-0 md:w-1/2 min-h-48 bg-gray-100 ">
