@@ -11,7 +11,7 @@ export default function AllUsers() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('/api/users/get-users', { next: { revalidate: 360 } });
+      const response = await fetch('/api/users/get-users');
       if (!response.ok) {
         return <div className='mt-8 flex justify-center items-center'>No users found</div>;
       }
