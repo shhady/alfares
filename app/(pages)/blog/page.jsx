@@ -3,7 +3,7 @@
 import BlogList from '@/components/blog-list/BlogList'
 import React, {useState, useEffect} from 'react'
 
-export default function page() {
+export default function Blog() {
   const [data, setData ] = useState([])
   useEffect(()=>{
     const fetchData = async ()=>{
