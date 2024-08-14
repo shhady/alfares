@@ -1,4 +1,5 @@
 
+'use client'
 import Link from 'next/link';
 import parse from 'html-react-parser'
 export default  function BlogList({data}) {
