@@ -78,7 +78,7 @@ export default function ContactUs() {
           email: '',
           how: ''
         })
-      },3000)
+      },4000)
     }
    },[formStatus]);
 
@@ -143,11 +143,13 @@ export default function ContactUs() {
           {/* Render the submission status message */}
           {renderMessage()}
 
-          <div className="w-full max-w-screen-lg text-left">
-            <button type="submit" className="btn btn-block btn-primary py-2 px-4 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full" disabled={isLoading}>
-              {isLoading ? 'جاري الإرسال...' : 'أرسل'}
-            </button>
-          </div>
+          {formStatus !== 'submitted' && (
+            <div className="w-full max-w-screen-lg text-left">
+              <button type="submit" className="btn btn-block btn-primary py-2 px-4 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full" disabled={isLoading}>
+                {isLoading ? 'جاري الإرسال...' : 'أرسل'}
+              </button>
+            </div>
+          )}
         </div>
       </form>
     </div>
