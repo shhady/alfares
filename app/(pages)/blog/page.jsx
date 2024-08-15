@@ -18,7 +18,6 @@ export default function Blog() {
   return (
     <div >
         <BlogList data={data}/>
-        {/* when adding */}
     </div>
   )
 }
