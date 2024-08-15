@@ -1,10 +1,10 @@
 import { connectToDB } from '@/utils/database';
 import User from '@/models/user';
 import nodemailer from 'nodemailer';
-
+import axios from 'axios';
 export async function POST(request) {
   await connectToDB();
-  
+  console.log(process.env.NEXT_PUBLIC_FIREBERRY_TOKEN_ID);
   try {
     const data = await request.json();
     const newUser = await User.create(data);
@@ -26,7 +26,27 @@ export async function POST(request) {
     };
 
     await transporter.sendMail(mailOptions);
-
+    try {
+      const fireberryResponse = await axios.post(
+          'https://api.powerlink.co.il/api/record/1',
+          {
+              Accountname: newUser.name,
+              Telephone1: newUser.phone,
+              Emailaddress1: newUser.email,
+              Originatingleadcode: 11,
+              description: `How do you know about us?:${newUser.how}, Are you ready ?:${newUser.ready}, what is your Budget:${newUser.budget}`
+          },
+          {
+              headers: {
+                  Tokenid: process.env.NEXT_PUBLIC_FIREBERRY_TOKEN_ID,
+                  'Content-Type': 'application/json'
+              }
+          }
+      );
+      console.log('Fireberry Response:', fireberryResponse.data);
+  } catch (error) {
+      console.error('Error submitting form data:', error.response ? error.response.data : error.message);
+  }
     return new Response(JSON.stringify(newUser), { status: 201 });
   } catch (error) {
     return new Response(JSON.stringify({ error: error.message }), { status: 400 });

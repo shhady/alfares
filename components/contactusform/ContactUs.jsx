@@ -11,6 +11,7 @@ export default function ContactUs() {
     how: ''
   });
   const [formStatus, setFormStatus] = useState(null);
+  const [isLoading, setIsLoading] = useState(false); // New state for loading
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,6 +23,7 @@ export default function ContactUs() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true); // Start loading
     try {
       const response = await fetch('/api/users/add-user', {
         method: 'POST',
@@ -46,6 +48,8 @@ export default function ContactUs() {
     } catch (error) {
       console.error('Error submitting form data:', error);
       setFormStatus('error');
+    } finally {
+      setIsLoading(false); // Stop loading
     }
   };
 
@@ -62,7 +66,7 @@ export default function ContactUs() {
     return null;
   };
 
-   useEffect(()=>{
+  useEffect(()=>{
     if(formStatus === 'submitted'){
       setTimeout(()=>{
         setFormStatus(null);
@@ -74,9 +78,10 @@ export default function ContactUs() {
           email: '',
           how: ''
         })
-      },4000)
+      },3000)
     }
-   },[formStatus])
+   },[formStatus]);
+
   return (
     <div className='p-8 bg-white text-black'>
       <h1 className='text-4xl text-center mb-4'>إحجز شقة الآن</h1>
@@ -139,7 +144,9 @@ export default function ContactUs() {
           {renderMessage()}
 
           <div className="w-full max-w-screen-lg text-left">
-            <button type="submit" className="btn btn-block btn-primary py-2 px-4 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full">أرسل</button>
+            <button type="submit" className="btn btn-block btn-primary py-2 px-4 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full" disabled={isLoading}>
+              {isLoading ? 'جاري الإرسال...' : 'أرسل'}
+            </button>
           </div>
         </div>
       </form>
