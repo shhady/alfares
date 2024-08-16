@@ -1,50 +1,22 @@
 'use client';
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import UserDetails from './UserDetails'; // Adjust the import path as necessary
+import { useState } from 'react';
+import UserDetails from './UserDetails'; // Ensure this path is correct
 
-export const dynamic = 'force-dynamic';
-
-export default function AllUsers() {
-  const [data, setData] = useState([]);
+export default function AllUsersClient({ initialData }) {
+  const [data] = useState(initialData);
   const [filter, setFilter] = useState('');
-  const [selectedUser, setSelectedUser] = useState(null); // State to track selected user
-  const [loading, setLoading] = useState(true); // Add a loading state
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PROD_URL ? process.env.NEXT_PUBLIC_BACKEND_PROD_URL : process.env.NEXT_PUBLIC_BACKEND_DEV_URL}api/users/get-users`);
-        if (response.ok) {
-          const allUsers = await response.json();
-          setData(allUsers);
-        } else {
-          console.error('API response error:', response.statusText);
-        }
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      } finally {
-        setLoading(false); // Set loading to false after data is fetched
-      }
-    };
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return <div className="text-center">Loading...</div>;
-  }
+  const [selectedUser, setSelectedUser] = useState(null);
 
   const filteredUsers = data.filter(user => user.name.toLowerCase().includes(filter.toLowerCase()));
 
   const handleUserClick = (user) => {
-    setSelectedUser(user); // Set selected user ID
+    setSelectedUser(user);
   };
 
   const handleBack = () => {
-    setSelectedUser(null); // Clear selected user ID to go back
+    setSelectedUser(null);
   };
 
-  // Conditional rendering
   if (selectedUser) {
     return <UserDetails user={selectedUser} onBack={handleBack} />;
   }
