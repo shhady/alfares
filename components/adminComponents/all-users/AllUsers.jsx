@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import UserDetails from './UserDetails';
 
-function useFetchUsers(page, filter, limit) {
+function useFetchUsers(page, limit) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [totalPages, setTotalPages] = useState(0);
@@ -12,7 +12,7 @@ function useFetchUsers(page, filter, limit) {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PROD_URL ? process.env.NEXT_PUBLIC_BACKEND_PROD_URL : process.env.NEXT_PUBLIC_BACKEND_DEV_URL}api/users/get-users?page=${page}&limit=${limit}&filter=${filter}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PROD_URL ? process.env.NEXT_PUBLIC_BACKEND_PROD_URL : process.env.NEXT_PUBLIC_BACKEND_DEV_URL}api/users/get-users?page=${page}&limit=${limit}`);
         if (response.ok) {
           const { users, totalPages } = await response.json();
           setData(users);
@@ -28,7 +28,7 @@ function useFetchUsers(page, filter, limit) {
     };
 
     fetchData();
-  }, [page, filter, limit]);
+  }, [page, limit]);
 
   return { data, loading, totalPages, error };
 }
@@ -37,9 +37,29 @@ export default function AllUsers() {
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState('');
   const [selectedUser, setSelectedUser] = useState(null); // State to track selected user
+  const [users, setUsers] = useState([]); // State to store all users
+  const [filteredUsers, setFilteredUsers] = useState([]); // State to store filtered users
   const limit = 10; // Items per page
 
-  const { data, loading, totalPages, error } = useFetchUsers(page, filter, limit);
+  const { data, loading, totalPages, error } = useFetchUsers(page, limit);
+
+  useEffect(() => {
+    setUsers(data); // Update users state when data changes
+  }, [data]);
+
+  useEffect(() => {
+    // Filter users based on the search input
+    if (filter) {
+      const lowercasedFilter = filter.toLowerCase();
+      setFilteredUsers(users.filter(user =>
+        user.name.toLowerCase().includes(lowercasedFilter) ||
+        user.email.toLowerCase().includes(lowercasedFilter) ||
+        user.phone.includes(lowercasedFilter)
+      ));
+    } else {
+      setFilteredUsers(users);
+    }
+  }, [filter, users]);
 
   const handleNextPage = () => {
     if (page < totalPages) {
@@ -55,7 +75,7 @@ export default function AllUsers() {
 
   const handleFilterChange = (e) => {
     setFilter(e.target.value);
-    setPage(1); // Reset to first page on filter change
+    // setPage(1); // Reset to first page on filter change
   };
 
   const handleUserClick = (user) => {
@@ -66,10 +86,10 @@ export default function AllUsers() {
     setSelectedUser(null); // Clear selected user ID to go back
   };
 
-  // Conditional rendering
   if (selectedUser) {
     return <UserDetails user={selectedUser} onBack={handleBackToUsers} />;
   }
+
   if (loading) {
     return (
       <div className="text-center min-h-[80vh] flex flex-col justify-center items-center">
@@ -99,7 +119,7 @@ export default function AllUsers() {
       <div className="text-center flex flex-col gap-4 max-w-screen-2xl m-auto">
         <h1 className="text-4xl">جميع المستخدمين</h1>
         <div className="border-b-2 md:w-80 w-40 mx-auto"></div>
-        <div className="my-4 w-full md:w-1/2 mx-auto">
+        {/* <div className="my-4 w-full md:w-1/2 mx-auto">
           <input
             type="text"
             placeholder="بحث..."
@@ -107,7 +127,7 @@ export default function AllUsers() {
             onChange={handleFilterChange}
             className="form-input w-full p-2 border rounded"
           />
-        </div>
+        </div> */}
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border">
             <thead>
@@ -122,12 +142,12 @@ export default function AllUsers() {
               </tr>
             </thead>
             <tbody>
-              {data.map(user => (
+              {filteredUsers.map(user => (
                 <tr 
                   key={user._id} 
                   className="cursor-pointer hover:bg-gray-100"
                   onClick={() => handleUserClick(user)}      
-                             >
+                >
                   <td className="py-2 px-4 border hidden lg:table-cell">{user.email}</td>
                   <td className="py-2 px-4 border">{user.name}</td>
                   <td className="py-2 px-4 border">{user.phone}</td>
