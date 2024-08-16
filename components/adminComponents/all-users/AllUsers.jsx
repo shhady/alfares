@@ -13,13 +13,17 @@ export default function AllUsers() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PROD_URL ? process.env.NEXT_PUBLIC_BACKEND_PROD_URL : process.env.NEXT_PUBLIC_BACKEND_DEV_URL}api/users/get-users`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PROD_URL}api/users/get-users`, {
+          next: { revalidate: 10 } // Revalidate data every 10 seconds
+        });
         if (response.ok) {
           const allUsers = await response.json();
           setData(allUsers);
+        } else {
+          console.error('API response error:', response.statusText);
         }
       } catch (error) {
-        console.error('Error fetching users:', error);
+        console.error('Error fetching data:', error);
       } finally {
         setLoading(false); // Set loading to false after data is fetched
       }
