@@ -5,10 +5,9 @@ import parse from 'html-react-parser';
 
 export default function AllBlogsAdmin() {
   const [data, setData] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PROD_URL ? process.env.NEXT_PUBLIC_BACKEND_PROD_URL : process.env.NEXT_PUBLIC_BACKEND_DEV_URL}/api/blogs/get-blogs`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PROD_URL ? process.env.NEXT_PUBLIC_BACKEND_PROD_URL : process.env.NEXT_PUBLIC_BACKEND_DEV_URL}api/blogs/get-blogs`);
       const res = await response.json();
       setData(res);
     };
@@ -26,6 +25,9 @@ export default function AllBlogsAdmin() {
     setData(updatedData);
   };
 
+  if(data.length === 0) {
+    return <div className='text-white min-h-[80vh] flex flex-col justify-center items-center '>لا يوجد حتى الان</div>
+  }
   return (
     <div className='bg-white min-h-[80vh]'>
       {data.map((blog) => (

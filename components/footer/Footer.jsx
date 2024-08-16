@@ -7,7 +7,6 @@ import { Mail } from 'lucide-react';
 import { FaPhone, FaWhatsapp } from "react-icons/fa"
 export default function Footer() {
     function sendEmail() {
-        console.log('clicked');
         window.location.assign("mailto:adyfares10@icloud.com");
       }
   return (

@@ -75,7 +75,6 @@ export default function AddProperty() {
         body: JSON.stringify(formData)
       });
       const newProperty = await response.json();
-      console.log('Form Data Submitted:', newProperty);
     } catch (error) {
       console.error('Error submitting form data:', error);
     }

@@ -12,9 +12,7 @@ export default function Navbar() {
     const pathName = usePathname()
     const {user, isSignedIn} = useUser();
 
-   if(isSignedIn) {
-       console.log(user.publicMetadata?.role);
-   }
+
         const toggleMenu = () => {
         setOpenMenu(!openMenu)
     }

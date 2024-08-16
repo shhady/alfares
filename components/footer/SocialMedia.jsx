@@ -6,7 +6,6 @@ import "./social.css";
 import Link from 'next/link';
 export default function SocialMedia() {
   function sendEmail() {
-    console.log('clicked');
     window.location.assign("mailto:adyfares10@icloud.com");
   }
 

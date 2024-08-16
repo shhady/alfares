@@ -21,7 +21,6 @@ export default function DeleteUpdateButtons({ id, setData }) {
             }
 
             const result = await response.json();
-            console.log('Property deleted successfully:', result);
 
             // Update the data by filtering out the deleted property
             setData((prevData) => prevData.filter(property => property._id !== id));

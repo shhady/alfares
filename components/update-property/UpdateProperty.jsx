@@ -76,7 +76,6 @@ export default function UpdateProperty({params}) {
         body: JSON.stringify(formData)
       });
       const updatedProperty = await response.json();
-      console.log('Form Data Updated:', updatedProperty);
     } catch (error) {
       console.error('Error updating form data:', error);
     }

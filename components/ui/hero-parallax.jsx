@@ -45,7 +45,6 @@ export const HeroParallax = ({ products }) => {
     });
   }, [scrollYProgress]);
 
-  console.log(padding);
   return (
 <div ref={ref} className="relative flex flex-col self-auto h-[150vh] overflow-hidden antialiased">
   <div className={`absolute inset-0 bg-[url('/dubai-pic.jpg')] bg-cover bg-no-repeat bg-center ${windowWidth > 1004 ? `${padding === "md:py-80 py-20" ? 'h-[100vh]' : 'h-[150vh]'}` : 'h-[100vh]'}`}>

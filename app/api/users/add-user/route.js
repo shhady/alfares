@@ -4,7 +4,6 @@ import nodemailer from 'nodemailer';
 import axios from 'axios';
 export async function POST(request) {
   await connectToDB();
-  console.log(process.env.NEXT_PUBLIC_FIREBERRY_TOKEN_ID);
   try {
     const data = await request.json();
     const newUser = await User.create(data);
@@ -43,7 +42,6 @@ export async function POST(request) {
               }
           }
       );
-      console.log('Fireberry Response:', fireberryResponse.data);
   } catch (error) {
       console.error('Error submitting form data:', error.response ? error.response.data : error.message);
   }

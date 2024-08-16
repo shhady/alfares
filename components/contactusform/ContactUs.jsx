@@ -42,7 +42,6 @@ export default function ContactUs() {
         }
       } else {
         const newUser = await response.json();
-        console.log(newUser);
         setFormStatus('submitted');
       }
     } catch (error) {

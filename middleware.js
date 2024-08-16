@@ -10,7 +10,7 @@ import {
   ]);
   
   export default clerkMiddleware(async (auth, req) => {
-    console.log(auth());
+    
     const {userId} = auth();
     if (isProtectedRoute(req)) {
         if (!userId) {
@@ -19,7 +19,7 @@ import {
         }
     
         const data = await clerkClient().users.getUserList();
-        console.log(data);
+        
         const userRole = data?.data.find(user => user.id === userId)?.publicMetadata?.role;
         
         if (userRole !== 'admin') {

@@ -31,7 +31,6 @@ export default function EditDeleteBlog({ blog, onBlogUpdate, onBlogDelete }) {
 
     if (response.ok) {
       setShowUpdateModal(false);
-      console.log('Updated');
     } else {
       alert('Failed to update the blog');
       // Optionally, revert the optimistic update if needed
