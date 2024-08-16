@@ -1,6 +1,8 @@
 import { connectToDB } from '@/utils/database';
 import User from '@/models/user';
 
+export const dynamic = 'force-dynamic'; // Ensures dynamic data fetching
+
 export async function GET() {
   await connectToDB();
 

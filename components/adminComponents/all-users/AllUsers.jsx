@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import UserDetails from './UserDetails'; // Adjust the import path as necessary
 
-export const dynamic = 'force-dynamic';
 
 export default function AllUsers() {
   const [data, setData] = useState([]);
