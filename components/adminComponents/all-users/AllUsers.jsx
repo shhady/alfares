@@ -14,7 +14,7 @@ export default function AllUsers() {
     const fetchData = async () => {
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PROD_URL}api/users/get-users`, {
-          next: { revalidate: 10 } // Revalidate data every 10 seconds
+          next: { revalidate: 60 } // Revalidate data every 10 seconds
         });
         if (response.ok) {
           const allUsers = await response.json();
