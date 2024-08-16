@@ -1,55 +1,97 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import UserDetails from './UserDetails'; // Adjust the import path as necessary
+import UserDetails from './UserDetails';
 
-
-export default function AllUsers() {
+function useFetchUsers(page, filter, limit) {
   const [data, setData] = useState([]);
-  const [filter, setFilter] = useState('');
-  const [selectedUser, setSelectedUser] = useState(null); // State to track selected user
-  const [loading, setLoading] = useState(true); // Add a loading state
+  const [loading, setLoading] = useState(true);
+  const [totalPages, setTotalPages] = useState(0);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PROD_URL ? process.env.NEXT_PUBLIC_BACKEND_PROD_URL : process.env.NEXT_PUBLIC_BACKEND_DEV_URL}api/users/get-users`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_PROD_URL ? process.env.NEXT_PUBLIC_BACKEND_PROD_URL : process.env.NEXT_PUBLIC_BACKEND_DEV_URL}api/users/get-users?page=${page}&limit=${limit}&filter=${filter}`);
         if (response.ok) {
-          const allUsers = await response.json();
-          setData(allUsers);
+          const { users, totalPages } = await response.json();
+          setData(users);
+          setTotalPages(totalPages);
         } else {
-          console.error('API response error:', response.statusText);
+          throw new Error('Failed to fetch data');
         }
-      } catch (error) {
-        console.error('Error fetching users:', error);
+      } catch (err) {
+        setError(err.message);
       } finally {
-        setLoading(false); // Set loading to false after data is fetched
+        setLoading(false);
       }
     };
+
     fetchData();
-  }, []);
+  }, [page, filter, limit]);
 
-  if (loading) {
-    return <div className="text-center min-h-[80vh] flex flex-col justify-center items-center">
-      <div class="flex justify-center items-center">
-  <div class="w-16 h-16 border-4 border-t-4 border-t-blue-500 border-gray-200 rounded-full animate-spin"></div>
-</div>
-    </div>;
-  }
+  return { data, loading, totalPages, error };
+}
 
-  const filteredUsers = data.filter(user => user.name.toLowerCase().includes(filter.toLowerCase()));
+export default function AllUsers() {
+  const [page, setPage] = useState(1);
+  const [filter, setFilter] = useState('');
+  const [selectedUser, setSelectedUser] = useState(null); // State to track selected user
+  const limit = 10; // Items per page
+
+  const { data, loading, totalPages, error } = useFetchUsers(page, filter, limit);
+
+  const handleNextPage = () => {
+    if (page < totalPages) {
+      setPage(prevPage => prevPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (page > 1) {
+      setPage(prevPage => prevPage - 1);
+    }
+  };
+
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value);
+    setPage(1); // Reset to first page on filter change
+  };
 
   const handleUserClick = (user) => {
     setSelectedUser(user); // Set selected user ID
   };
 
-  const handleBack = () => {
+  const handleBackToUsers = () => {
     setSelectedUser(null); // Clear selected user ID to go back
   };
 
   // Conditional rendering
   if (selectedUser) {
-    return <UserDetails user={selectedUser} onBack={handleBack} />;
+    return <UserDetails user={selectedUser} onBack={handleBackToUsers} />;
+  }
+  if (loading) {
+    return (
+      <div className="text-center min-h-[80vh] flex flex-col justify-center items-center">
+        {/* Loading Skeleton */}
+        <div className="animate-pulse flex space-x-4">
+          <div className="rounded-full bg-gray-200 h-10 w-10"></div>
+          <div className="flex-1 space-y-4 py-1">
+            <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+            <div className="space-y-2">
+              <div className="h-4 bg-gray-200 rounded"></div>
+              <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return <div className="text-center min-h-[80vh] flex flex-col justify-center items-center">
+      <p className="text-red-500">Error: {error}</p>
+    </div>;
   }
 
   return (
@@ -62,7 +104,7 @@ export default function AllUsers() {
             type="text"
             placeholder="بحث..."
             value={filter}
-            onChange={(e) => setFilter(e.target.value)}
+            onChange={handleFilterChange}
             className="form-input w-full p-2 border rounded"
           />
         </div>
@@ -80,12 +122,12 @@ export default function AllUsers() {
               </tr>
             </thead>
             <tbody>
-              {filteredUsers.map(user => (
+              {data.map(user => (
                 <tr 
                   key={user._id} 
-                  onClick={() => handleUserClick(user)} 
                   className="cursor-pointer hover:bg-gray-100"
-                >
+                  onClick={() => handleUserClick(user)}      
+                             >
                   <td className="py-2 px-4 border hidden lg:table-cell">{user.email}</td>
                   <td className="py-2 px-4 border">{user.name}</td>
                   <td className="py-2 px-4 border">{user.phone}</td>
@@ -97,6 +139,11 @@ export default function AllUsers() {
               ))}
             </tbody>
           </table>
+        </div>
+        <div className="flex justify-between mt-4">
+          <button onClick={handlePreviousPage} disabled={page === 1} className="bg-blue-500 text-white py-2 px-4 rounded disabled:opacity-50">السابق</button>
+          <span>صفحه {page} من {totalPages}</span>
+          <button onClick={handleNextPage} disabled={page === totalPages} className="bg-blue-500 text-white py-2 px-4 rounded disabled:opacity-50">التالي</button>
         </div>
       </div>
     </div>
