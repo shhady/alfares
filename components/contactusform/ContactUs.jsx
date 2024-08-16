@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 export default function ContactUs() {
   const [formData, setFormData] = useState({
     budget: '',
@@ -12,14 +13,22 @@ export default function ContactUs() {
   });
   const [formStatus, setFormStatus] = useState(null);
   const [isLoading, setIsLoading] = useState(false); // New state for loading
-
-  const handleChange = (e) => {
+const handleChange = (e) => {
+  // If e is an object with a target, it's a standard input field
+  if (e && e.target) {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value
     });
-  };
+  } else {
+    // If e is a string (from PhoneInput), update the phone field directly
+    setFormData({
+      ...formData,
+      phone: e // e here is the value from PhoneInput
+    });
+  }
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -118,7 +127,18 @@ export default function ContactUs() {
             </div>
             <div className="mb-3 text-right">
               <label htmlFor="phone" className="text-black">رقم الهاتف <span className="required text-danger">*</span></label>
-              <input type="number" name="phone" required value={formData.phone} onChange={handleChange} className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200" />
+              {/* <input type="number" name="phone" required value={formData.phone} onChange={handleChange} className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200" /> */}
+              <PhoneInput
+              className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200"
+      placeholder="Enter phone number"
+      international
+       countryCallingCodeEditable={false}
+      defaultCountry="AE"
+      value={formData.phone}
+      name="phone"
+      onChange={(value) => handleChange(value)} // Pass only the value
+      />
+      
             </div>
           </div>
           <div className="grid lg:grid-cols-2 gap-4 w-full max-w-screen-lg">
