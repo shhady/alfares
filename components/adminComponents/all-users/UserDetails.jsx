@@ -1,17 +1,21 @@
 // UserDetails.js
 'use client';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 export default function UserDetails({ user, onBack }) {
-
+  const router = useRouter();
+  useEffect(() => {
+    // Scroll to the top of the page when the component mounts
+    window.scrollTo(0, 0);
+  }, [router.pathname]);
   if (!user) return <div>Loading...</div>; // Show loading while fetching data
 
   return (
-    <div className="bg-white text-black min-h-screen p-4">
+    <div className="bg-white text-black min-h-[70vh] p-4">
       <div className="text-start flex flex-col gap-4 max-w-screen-2xl m-auto">
         <h1 className="text-4xl">تفاصيل المستخدم</h1>
-        <div className="border-b-2 md:w-80 w-40 mx-auto"></div>
+        <div className="border-b-2 md:w-80  "></div>
         <div className="mt-4">
           <h2 className="text-2xl">الاسم: {user.name}</h2>
           <p>ايميل: {user.email}</p>
