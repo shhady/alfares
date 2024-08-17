@@ -35,7 +35,7 @@ export async function POST(request) {
               Emailaddress1: newUser.email,
               Originatingleadcode: 11,
               billingcountry: newUser.country,
-              description: `How do you know about us?:${newUser.how}, Are you ready ?:${newUser.ready}, what is your Budget:${newUser.budget}`
+              description: `How do you know about us?:${newUser.how}, Are you ready ?:${newUser.ready}, what is your Budget:${newUser.budget}, where from? ${newUser.country} `
           },
           {
               headers: {
