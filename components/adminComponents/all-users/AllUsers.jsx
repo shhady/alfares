@@ -150,7 +150,7 @@ export default function AllUsers() {
                 >
                   <td className="py-2 px-4 border hidden lg:table-cell">{user.email}</td>
                   <td className="py-2 px-4 border">{user.name}</td>
-                  <td className="py-2 px-4 border flex flex-col justify-center items-center">{user.countryFlagCode ? <Flag country={user.countryFlagCode} /> : ""}{user.phone}</td>
+                  <td className="py-2 px-4 border flex flex-col lg:flex-row justify-center items-center">{user.countryFlagCode ? <Flag country={user.countryFlagCode} /> : ""}{user.phone}</td>
                   <td className="py-2 px-4 border hidden lg:table-cell">{user.budget}</td>
                   <td className="py-2 px-4 border hidden lg:table-cell">{user.ready}</td>
                   <td className="py-2 px-4 border hidden lg:table-cell">{user.how}</td>
