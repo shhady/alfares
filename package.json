@@ -34,6 +34,7 @@
     "nodemailer": "^6.9.14",
     "react": "^18",
     "react-dom": "^18",
+    "react-flagkit": "^2.0.4",
     "react-icons": "^5.2.1",
     "react-intersection-observer": "^9.13.0",
     "react-phone-number-input": "^3.4.5",

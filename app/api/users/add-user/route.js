@@ -8,6 +8,7 @@ export async function POST(request) {
     const data = await request.json();
     const newUser = await User.create(data);
 
+    console.log(newUser);
     // Send email to yourself
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -33,6 +34,7 @@ export async function POST(request) {
               Telephone1: newUser.phone,
               Emailaddress1: newUser.email,
               Originatingleadcode: 11,
+              billingcountry: newUser.country,
               description: `How do you know about us?:${newUser.how}, Are you ready ?:${newUser.ready}, what is your Budget:${newUser.budget}`
           },
           {
@@ -42,6 +44,7 @@ export async function POST(request) {
               }
           }
       );
+      
   } catch (error) {
       console.error('Error submitting form data:', error.response ? error.response.data : error.message);
   }

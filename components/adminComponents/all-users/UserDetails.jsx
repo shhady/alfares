@@ -2,6 +2,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Flag from 'react-flagkit';
 
 export default function UserDetails({ user, onBack }) {
   const router = useRouter();
@@ -20,6 +21,7 @@ export default function UserDetails({ user, onBack }) {
           <h2 className="text-2xl">الاسم: {user.name}</h2>
           <p>ايميل: {user.email}</p>
           <p>الهاتف: {user.phone}</p>
+          <p className='flex gap-1'>الدولة: {user.country} {user.countryFlagCode ? <Flag country={user.countryFlagCode} /> : ""} </p>
           <p>ميزانية: {user.budget}</p>
           <p>جاهز: {user.ready}</p>
           <p>كيف: {user.how}</p>

@@ -27,7 +27,15 @@ const userSchema = new Schema({
   how: {
     type: String,
     required: true,
-  }
+  },
+  country: {
+    type: String,
+    required: true,
+  },
+  countryFlagCode: {
+    type: String,
+    required: true,
+  },
 }, { timestamps: true });
 
 const User = mongoose.models?.User || mongoose.model('User', userSchema);

@@ -1,7 +1,9 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import 'react-phone-number-input/style.css'
-import PhoneInput from 'react-phone-number-input'
+import PhoneInput, { getCountryCallingCode, parsePhoneNumber } from 'react-phone-number-input';
+import countryNames from 'react-phone-number-input/locale/en'
+
 export default function ContactUs() {
   const [formData, setFormData] = useState({
     budget: '',
@@ -9,26 +11,54 @@ export default function ContactUs() {
     name: '',
     phone: '',
     email: '',
-    how: ''
+    how: '',
+    country: countryNames['AE'],
+    countryFlagCode: 'AE',
   });
   const [formStatus, setFormStatus] = useState(null);
   const [isLoading, setIsLoading] = useState(false); // New state for loading
-const handleChange = (e) => {
-  // If e is an object with a target, it's a standard input field
-  if (e && e.target) {
+
+  console.log(formData);
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
-  } else {
-    // If e is a string (from PhoneInput), update the phone field directly
-    setFormData({
-      ...formData,
-      phone: e // e here is the value from PhoneInput
-    });
-  }
+  };
+
+const handlePhoneChange = (phone) => {
+  console.log('Phone changed:', phone); // Log the full phone number
+  setFormData({
+    ...formData,
+    phone,
+  });
 };
+
+useEffect(() => {
+  if (formData.phone && formData.phone.length > 5) { // Adjust condition as needed
+    try {
+      console.log('Parsing phone number:', formData.phone);
+      const parsedNumber = parsePhoneNumber(formData.phone);
+
+      if (parsedNumber) {
+        console.log('Parsed number:', parsedNumber);
+        const country = parsedNumber.country;
+        setFormData((prevData) => ({
+          ...prevData,
+          country: countryNames[country] || '',
+          countryFlagCode: country || '',
+        }));
+      } else {
+        console.log('Phone number could not be parsed.');
+      }
+    } catch (error) {
+      console.error('Error parsing phone number:', error);
+    }
+  } else {
+    console.log('Incomplete phone number, skipping parsing.');
+  }
+}, [formData.phone]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -84,7 +114,9 @@ const handleChange = (e) => {
           name: '',
           phone: '',
           email: '',
-          how: ''
+          how: '',
+          country: '',
+          countryFlagCode: '',
         })
       },4000)
     }
@@ -129,15 +161,15 @@ const handleChange = (e) => {
               <label htmlFor="phone" className="text-black">رقم الهاتف <span className="required text-danger">*</span></label>
               {/* <input type="number" name="phone" required value={formData.phone} onChange={handleChange} className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200" /> */}
               <PhoneInput
-              className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200"
-      placeholder="Enter phone number"
-      international
-       countryCallingCodeEditable={false}
-      defaultCountry="AE"
-      value={formData.phone}
-      name="phone"
-      onChange={(value) => handleChange(value)} // Pass only the value
-      />
+                className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200"
+                placeholder="Enter phone number"
+                international
+                countryCallingCodeEditable={false}
+                defaultCountry="AE"
+                value={formData.phone}
+                name="phone"
+                onChange={handlePhoneChange}
+              />
       
             </div>
           </div>
