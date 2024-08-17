@@ -8,7 +8,6 @@ export async function POST(request) {
     const data = await request.json();
     const newUser = await User.create(data);
 
-    console.log(newUser);
     // Send email to yourself
     const transporter = nodemailer.createTransport({
       service: 'gmail',
