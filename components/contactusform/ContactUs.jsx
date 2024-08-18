@@ -127,7 +127,7 @@ useEffect(() => {
           country: '',
           countryFlagCode: '',
         })
-      },4000)
+      },6000)
     }
    },[formStatus]);
 
