@@ -12,16 +12,16 @@ export default function Footer() {
   return (
     <div className='bg-[#303030] text-white p-8'>
       {/* Mobile View */}
-      <div className='md:hidden flex flex-col items-center gap-5 text-center'>
+      <div className='md:hidden flex flex-col items-center gap-3 text-center'>
       <Image
-                    src='/Adi_Fares_Logo-footer.png'
+                    src='/Adi_Fares_LogoWhite-02.png'
                     alt='logo'
                     width={150}
                     height={150} // Maintain the same aspect ratio
                     priority={false}
                     className='w-48 h-36' // This ensures the aspect ratio is preserved
                 />
-                        <div className='flex flex-col gap-4 w-full'>
+                        <div className='flex flex-col gap-2 w-full'>
           <h2 className='font-bold my-2'>روابط سريعة</h2>
         <ul className='flex justify-evenly items-start gap-8'>
        
@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
         </ul>
           </div>
-          <div className='flex flex-col gap-4'>
+          <div className='flex flex-col gap-2'>
             <h2 className='font-bold my-4'>تواصل معنا</h2>
             <div>عنوان: شارع الشيخ زايد، دبي، الإمارات العربية المتحدة</div>
             <div>هاتف: 00972542464585</div>
@@ -54,8 +54,8 @@ export default function Footer() {
       </Link>
       </div>
           </div>
-          <div className=' flex flex-col gap-4'>
-        <h2 className='font-bold my-4'>تابعنا</h2>
+          <div className=' flex flex-col gap-2'>
+        <h2 className='font-bold my-2'>تابعنا</h2>
 
         <SocialMedia />
         <div dir='ltr'>© 2024 Alfares.</div>
@@ -66,7 +66,7 @@ export default function Footer() {
       <div className='hidden md:grid md:grid-cols-2 xl:grid-cols-4'>
         <div className='flex flex-col justify-center items-center'>
         <Image
-                        src='/Adi_Fares_Logo-footer.png'
+                        src='/Adi_Fares_LogoWhite-02.png'
                         alt='logo'
                         width={150}
                         height={100} // Maintain the same aspect ratio

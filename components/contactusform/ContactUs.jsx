@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import 'react-phone-number-input/style.css'
 import PhoneInput, { getCountryCallingCode, parsePhoneNumber } from 'react-phone-number-input';
 import countryNames from 'react-phone-number-input/locale/en'
+import Image from 'next/image';
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -93,7 +94,15 @@ useEffect(() => {
 
   const renderMessage = () => {
     if (formStatus === 'submitted') {
-      return <div className='text-2xl text-green-700 text-center'>تم ارسال البيانات بنجاح</div>;
+      return  <div onClick={()=> setFormStatus(null)} className='z-50 w-full h-full bg-black bg-opacity-50 fixed top-0 right-0 flex items-center justify-center'>
+      <Image
+        src='/PopUp.jpg'
+        alt="logo"
+        width={1000}
+        height={1000}
+        className='w-full h-auto max-w-screen-sm md:max-w-full md:w-auto md:h-auto'
+      />
+    </div>;
     }
     if (formStatus === 'emailUsed') {
       return <div className='text-2xl text-red-700 text-center'>تم استخدام هذا البريد الإلكتروني في السابق</div>;
@@ -122,6 +131,7 @@ useEffect(() => {
     }
    },[formStatus]);
 
+   console.log(formStatus);
   return (
     <div className='p-8 bg-white text-black'>
       <h1 className='text-4xl text-center mb-4'>إحجز شقة الآن</h1>
@@ -193,7 +203,7 @@ useEffect(() => {
 
           {/* Render the submission status message */}
           {renderMessage()}
-
+         
           {formStatus !== 'submitted' && (
             <div className="w-full max-w-screen-lg text-left">
               <button type="submit" className="btn btn-block btn-primary py-2 px-4 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full" disabled={isLoading}>
