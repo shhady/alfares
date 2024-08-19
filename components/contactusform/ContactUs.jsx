@@ -167,10 +167,11 @@ useEffect(() => {
               <label htmlFor="name" className="text-black">الاسم الكامل <span className="required text-danger">*</span></label>
               <input type="text" name="name" required value={formData.name} onChange={handleChange} className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200" />
             </div>
-            <div className="mb-3 text-right">
+            <div className="mb-3 text-right" dir="ltr">
               <label htmlFor="phone" className="text-black">رقم الهاتف <span className="required text-danger">*</span></label>
               {/* <input type="number" name="phone" required value={formData.phone} onChange={handleChange} className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200" /> */}
               <PhoneInput
+               
                 className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200"
                 placeholder="Enter phone number"
                 international
