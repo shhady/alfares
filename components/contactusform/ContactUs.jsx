@@ -96,7 +96,7 @@ useEffect(() => {
     if (formStatus === 'submitted') {
       return  <div onClick={()=> setFormStatus(null)} className='z-50 w-full h-full bg-black bg-opacity-50 fixed top-0 right-0 flex items-center justify-center'>
       <Image
-        src='/PopUp.jpg'
+        src='/Popup.jpg'
         alt="logo"
         width={1000}
         height={1000}
@@ -204,7 +204,7 @@ useEffect(() => {
 
           {/* Render the submission status message */}
           {renderMessage()}
-         
+       
           {formStatus !== 'submitted' && (
             <div className="w-full max-w-screen-lg text-left">
               <button type="submit" className="btn btn-block btn-primary py-2 px-4 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full" disabled={isLoading}>
@@ -213,6 +213,7 @@ useEffect(() => {
             </div>
           )}
         </div>
+        
       </form>
     </div>
   );
