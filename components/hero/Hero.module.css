@@ -34,7 +34,7 @@
   }
   
   .content {
-    color: white;
+    /* color: white; */
     animation: contentSlideDown 2s ease-out forwards;
   }
 

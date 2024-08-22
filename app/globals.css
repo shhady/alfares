@@ -69,6 +69,7 @@
 }
 .hero-height {
   height: calc(100vh - 6rem);
+  
 }
 .line-under::after {
   content: '';

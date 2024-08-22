@@ -5,7 +5,7 @@ import PhoneInput, { getCountryCallingCode, parsePhoneNumber } from 'react-phone
 import countryNames from 'react-phone-number-input/locale/en'
 import Image from 'next/image';
 
-export default function ContactUs() {
+export default function ContactUs({hero}) {
   const [formData, setFormData] = useState({
     budget: '',
     ready: '',
@@ -133,14 +133,15 @@ useEffect(() => {
 
    console.log(formStatus);
   return (
-    <div className='p-8 bg-white text-black'>
-      <h1 className='text-4xl text-center mb-4'>إحجز شقة الآن</h1>
-      <p className='text-2xl text-center line-under-white'>املأ بياناتك وسنقوم بالرد عليك في أقرب وقت ممكن</p>
+    
+    <div className={`p-8  ${hero ? 'text-white':'text-black'} `}>
+      <h1 className='text-4xl text-center lg:mb-4'>إحجز شقتك الآن</h1>
+      {/* <p className='text-2xl text-center line-under-white'>املأ بياناتك وسنقوم بالرد عليك في أقرب وقت ممكن</p> */}
       <form onSubmit={handleSubmit} className="container mx-auto py-8 px-4 lg:px-0">
-        <div className="grid lg:grid-cols-1 gap-4 justify-items-center items-end">
-          <div className="grid lg:grid-cols-2 gap-4 w-full max-w-screen-lg">
+        <div className={`grid lg:grid-cols-1 ${hero ? 'gap-0':'gap-4'}  justify-items-center items-end`}>
+          <div className={`grid lg:grid-cols-2 ${hero ? 'gap-1 lg:gap-4':'gap-4'} w-full max-w-screen-lg`}>
             <div className="mb-3 text-right">
-              <label htmlFor="budget" className="text-black">ما هي ميزانية الاستثمار؟ <span className="required text-danger">*</span></label>
+              <label htmlFor="budget" className={`${hero ? 'text-white':'text-black'} `}>ما هي ميزانية الاستثمار؟ <span className="required text-danger">*</span></label>
               <select name="budget" id="budget" required value={formData.budget} onChange={handleChange} className="form-control mt-2 block w-full rounded-md border-gray-900 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200">
                 <option value="">اختر</option>
                 <option value="I don't have money">ليس لدي المال</option>
@@ -154,7 +155,7 @@ useEffect(() => {
               </select>
             </div>
             <div className="mb-3 text-right">
-              <label htmlFor="ready" className="text-black">هل انت جاهز لحجز العقار؟<span className="required text-danger">*</span></label>
+              <label htmlFor="ready" className={`${hero ? 'text-white':'text-black'} `}>هل انت جاهز لحجز العقار؟<span className="required text-danger">*</span></label>
               <select name="ready" id="ready" required value={formData.ready} onChange={handleChange} className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200">
                 <option value="">اختر</option>
                 <option value="Yes">نعم</option>
@@ -162,13 +163,13 @@ useEffect(() => {
               </select>
             </div>
           </div>
-          <div className="grid lg:grid-cols-2 gap-4 w-full max-w-screen-lg">
+          <div className={`grid lg:grid-cols-2 ${hero ? 'gap-1 lg:gap-4':'gap-4'} w-full max-w-screen-lg`}>
             <div className="mb-3 text-right">
-              <label htmlFor="name" className="text-black">الاسم الكامل <span className="required text-danger">*</span></label>
+              <label htmlFor="name" className={`${hero ? 'text-white':'text-black'} `}>الاسم الكامل <span className="required text-danger">*</span></label>
               <input type="text" name="name" required value={formData.name} onChange={handleChange} className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200" />
             </div>
             <div className="mb-3 text-right" dir="ltr">
-              <label htmlFor="phone" className="text-black">رقم الهاتف <span className="required text-danger">*</span></label>
+              <label htmlFor="phone" className={`${hero ? 'text-white':'text-black'} `}><span className="required text-danger">*</span> رقم الهاتف </label>
               {/* <input type="number" name="phone" required value={formData.phone} onChange={handleChange} className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200" /> */}
               <PhoneInput
                
@@ -184,13 +185,13 @@ useEffect(() => {
       
             </div>
           </div>
-          <div className="grid lg:grid-cols-2 gap-4 w-full max-w-screen-lg">
+          <div className={`grid lg:grid-cols-2 ${hero ? 'gap-1 lg:gap-4':'gap-4'} w-full max-w-screen-lg`}>
             <div className="mb-3 text-right">
-              <label htmlFor="email" className="text-black">البريد الإلكتروني <span className="required text-danger">*</span></label>
+              <label htmlFor="email" className={`${hero ? 'text-white':'text-black'} `}>البريد الإلكتروني <span className="required text-danger">*</span></label>
               <input type="email" name="email" required value={formData.email} onChange={handleChange} className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200" />
             </div>
             <div className="mb-3 text-right">
-              <label htmlFor="how" className="text-black">كيف تعرف عنا؟<span className="required text-danger">*</span></label>
+              <label htmlFor="how" className={`${hero ? 'text-white':'text-black'} `}>كيف تعرف عنا؟<span className="required text-danger">*</span></label>
               <select name="how" id="how" required value={formData.how} onChange={handleChange} className="form-control mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black p-2 bg-gray-200">
                 <option value="">اختر</option>
                 <option value="Instagram">انستجرام</option>
@@ -207,8 +208,9 @@ useEffect(() => {
        
           {formStatus !== 'submitted' && (
             <div className="w-full max-w-screen-lg text-left">
-              <button type="submit" className="btn btn-block btn-primary py-2 px-4 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full" disabled={isLoading}>
-                {isLoading ? 'جاري الإرسال...' : 'أرسل'}
+              <button type="submit" 
+            className="w-full mt-4 inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#dbb454,45%,white,55%,#dbb454)] bg-[length:200%_100%] px-6 font-medium text-[#303030] transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50" disabled={isLoading}>
+{isLoading ? 'جاري الإرسال...' : 'أرسل'}
               </button>
             </div>
           )}
