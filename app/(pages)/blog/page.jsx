@@ -28,7 +28,7 @@ const articles = [
   {
     source: 'Merimedia',
     title: 'عدي فارس "نسر العقارات" يقدم خدمات استشارية متخصصة',
-    image: '/blog-3.png', // Replace with correct image
+    image: '/blogs-3.jpg', // Replace with correct image
     dir:'rtl',
     excerpt: 'يتمتع عدي فارس بخبرة عميقة في مجال الاستثمار العقاري...',
     link: 'https://www.merimedia.net/2024/08/27/%d8%b9%d8%af%d9%8a-%d9%81%d8%a7%d8%b1%d8%b3-%d9%86%d8%b3%d8%b1-%d8%a7%d9%84%d8%b9%d9%82%d8%a7%d8%b1%d8%a7%d8%aa-%d9%8a%d9%82%d8%af%d9%85-%d8%ae%d8%af%d9%85%d8%a7%d8%aa-%d8%a7%d8%b3%d8%aa%d8%b4/ ',
@@ -36,7 +36,7 @@ const articles = [
   {
     source: 'Merimedia (EN)',
     title: 'Ady Faris, “Eagle of Real Estate” Provides Specialized Consulting Services in Real Estate Investment',
-    image: '/blog-3.png', // Replace with correct image
+    image: '/blogs-3.jpg', // Replace with correct image
     dir:'ltr',
     excerpt: 'Ady Fares, known as the "Eagle of Real Estate," continues to offer...',
     link: 'https://www.merimedia.net/en/2024/08/27/ady-faris-eagle-of-real-estate-provides-specialized-consulting-services-in-real-estate-investment/',
@@ -44,7 +44,7 @@ const articles = [
   {
     source: 'Pardais News',
     title: 'Ady Fares: Real Estate Soars',
-    image: '/blog-3.png', // Replace with correct image
+    image: '/blogs-3.jpg', // Replace with correct image
     excerpt: 'Ady Fares continues to establish himself in the real estate sector...',
     link: 'https://pardaisnews.com/?p=11610',
     dir:'ltr',
