@@ -96,7 +96,7 @@ useEffect(() => {
     if (formStatus === 'submitted') {
       return  <div onClick={()=> setFormStatus(null)} className='z-50 w-full h-full bg-black bg-opacity-50 fixed top-0 right-0 flex items-center justify-center'>
       <Image
-        src='/Popup.jpg'
+        src='https://res.cloudinary.com/shhady/image/upload/v1725968866/Popup_ltefca.jpg'
         alt="logo"
         width={1000}
         height={1000}
