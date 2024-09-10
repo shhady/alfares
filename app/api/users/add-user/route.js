@@ -47,6 +47,7 @@ export async function POST(request) {
   } catch (error) {
       console.error('Error submitting form data:', error.response ? error.response.data : error.message);
   }
+  
     return new Response(JSON.stringify(newUser), { status: 201 });
   } catch (error) {
     return new Response(JSON.stringify({ error: error.message }), { status: 400 });
