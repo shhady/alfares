@@ -39,6 +39,7 @@ export async function POST(request) {
           },
           {
               headers: {
+                // new
                   Tokenid: process.env.NEXT_PUBLIC_FIREBERRY_TOKEN_ID,
                   'Content-Type': 'application/json'
               }
